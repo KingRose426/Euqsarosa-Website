@@ -1,3 +1,0 @@
-always:
-  after_tool_call:
-    run: python userinput.py

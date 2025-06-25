@@ -87,6 +87,7 @@ export default function MusicReleaseCard({
 }) {
   const cardRef = useRef(null);
   const hasAutoScrolledRef = useRef(false);
+  const subWavelengthBoxRef = useRef(null);
   const embedHeight = release.type === "album" ? "152" : "80";
 
   // Scroll to center when dropdown is opened
@@ -143,6 +144,17 @@ export default function MusicReleaseCard({
       hasAutoScrolledRef.current = false;
     }
   }, [isOpen, onAutoScroll]);
+
+  // Mouse move handler for Sub Wavelength box
+  const handleSubWavelengthMouseMove = (e) => {
+    const box = subWavelengthBoxRef.current;
+    if (!box) return;
+    const rect = box.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    box.style.setProperty("--x", `${x}px`);
+    box.style.setProperty("--y", `${y}px`);
+  };
 
   const handleMusicServiceClick = () => {
     // No longer close the dropdown on click
@@ -202,23 +214,34 @@ export default function MusicReleaseCard({
             {/* Dropdown for Aurora */}
             {release.title === "Aurora" && (
               <div className="mb-4">
-                {/* Spotify Preview Embed */}
-                <div className="mb-3 flex justify-center">
-                  <iframe
-                    style={{
-                      borderRadius: "16px",
-                      boxShadow: "0 4px 24px rgba(80, 0, 120, 0.15)",
-                      border: "2px solid #a084e8",
-                    }}
-                    src="https://open.spotify.com/embed/track/1tdu2HljUSbkDYTkTlZVC9?utm_source=generator"
-                    width="95%"
-                    height="120"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                    title="Spotify Preview"
-                  ></iframe>
+                {/* Spotify Preview Embed - compact, interactive */}
+                <div className="mb-2 flex justify-center items-center">
+                  <div
+                    className="spotify-embed-container group"
+                    style={{ width: "95%", borderRadius: "16px" }}
+                  >
+                    <iframe
+                      className="spotify-embed-frame"
+                      style={{
+                        borderRadius: "16px",
+                        border: "2px solid #a084e8",
+                        width: "100%",
+                        height: "96px",
+                        background: "#18181b",
+                        margin: 0,
+                        padding: 0,
+                        display: "block",
+                      }}
+                      src="https://open.spotify.com/embed/track/1tdu2HljUSbkDYTkTlZVC9?utm_source=generator"
+                      width="100%"
+                      height="96"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      allowFullScreen
+                      title="Spotify Preview"
+                    ></iframe>
+                  </div>
                 </div>
                 <div className="font-semibold text-white mb-2 text-center">
                   Choose music service
@@ -334,23 +357,34 @@ export default function MusicReleaseCard({
             {/* Dropdown for In Your Eyes */}
             {release.title === "In Your Eyes" && (
               <div className="mb-4">
-                {/* Spotify Preview Embed */}
-                <div className="mb-3 flex justify-center">
-                  <iframe
-                    style={{
-                      borderRadius: "16px",
-                      boxShadow: "0 4px 24px rgba(80, 0, 120, 0.15)",
-                      border: "2px solid #a084e8",
-                    }}
-                    src="https://open.spotify.com/embed/track/0SCoNAciqsTEKWpHiSfYVk?utm_source=generator"
-                    width="95%"
-                    height="120"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                    title="Spotify Preview"
-                  ></iframe>
+                {/* Spotify Preview Embed - compact, interactive */}
+                <div className="mb-2 flex justify-center items-center">
+                  <div
+                    className="spotify-embed-container group"
+                    style={{ width: "95%", borderRadius: "16px" }}
+                  >
+                    <iframe
+                      className="spotify-embed-frame"
+                      style={{
+                        borderRadius: "16px",
+                        border: "2px solid #a084e8",
+                        width: "100%",
+                        height: "96px",
+                        background: "#18181b",
+                        margin: 0,
+                        padding: 0,
+                        display: "block",
+                      }}
+                      src="https://open.spotify.com/embed/track/0SCoNAciqsTEKWpHiSfYVk?utm_source=generator"
+                      width="100%"
+                      height="96"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      allowFullScreen
+                      title="Spotify Preview"
+                    ></iframe>
+                  </div>
                 </div>
                 <div className="font-semibold text-white mb-2 text-center">
                   Choose music service
@@ -488,6 +522,113 @@ export default function MusicReleaseCard({
                     alt="Tidal"
                     link="https://tidal.com/browse/track/331634289?u"
                     buttonLabel="Play"
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Dropdown for Never Let Go / Used To */}
+            {release.title === "Never Let Go / Used To" && (
+              <div className="mb-4">
+                {/* Spotify Preview Embed - compact, interactive */}
+                <div className="mb-2 flex justify-center items-center">
+                  <div
+                    className="spotify-embed-container group"
+                    style={{ width: "95%", borderRadius: "16px" }}
+                  >
+                    <iframe
+                      className="spotify-embed-frame"
+                      style={{
+                        borderRadius: "16px",
+                        border: "2px solid #a084e8",
+                        width: "100%",
+                        height: "96px",
+                        background: "#18181b",
+                        margin: 0,
+                        padding: 0,
+                        display: "block",
+                      }}
+                      src="https://open.spotify.com/embed/album/1bAqTRWU3QALt1F8doULon?utm_source=generator"
+                      width="100%"
+                      height="96"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      allowFullScreen
+                      title="Spotify Preview"
+                    ></iframe>
+                  </div>
+                </div>
+                <div className="font-semibold text-white mb-2 text-center">
+                  Choose music service
+                </div>
+                <div className="flex flex-col gap-3">
+                  {/* Buy on Sub Wavelength - in box, no icon or play button, fully interactive */}
+                  <a
+                    href="https://sub-wavelength.com/album/3506288/never-let-go-used-to"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ref={subWavelengthBoxRef}
+                    className="relative flex items-center bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] rounded-xl shadow-md p-3 transition-all duration-200 overflow-hidden animated-gradient-box group text-center justify-center cursor-pointer"
+                    style={{ letterSpacing: "0.05em" }}
+                    onMouseMove={handleSubWavelengthMouseMove}
+                  >
+                    <span className="w-full px-4 py-2 rounded-lg text-white font-sans font-extrabold tracking-wide shadow transition-colors text-lg">
+                      BUY ON SUB WAVELENGTH
+                    </span>
+                    <div className="pointer-events-none absolute inset-0 z-10 animated-gradient-overlay" />
+                  </a>
+                  {/* Spotify */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Spotify.svg"
+                    alt="Spotify"
+                    link="https://open.spotify.com/album/1bAqTRWU3QALt1F8doULon?si=v3MlnzzuR32IP844W8A5rA"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Bandcamp */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Bandcamp.svg"
+                    alt="Bandcamp"
+                    link="https://subwavelengthrecordings.bandcamp.com/album/never-let-go-used-to"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Go To
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Beatport */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Beatport.svg"
+                    alt="Beatport"
+                    link="https://www.beatport.com/release/never-let-go-used-to/5101656"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* JunoDownload */}
+                  <AnimatedDropdownBox
+                    svgSrc="/junodownload.svg"
+                    alt="JunoDownload"
+                    link="https://www.junodownload.com/products/euqsarosa-never-let-go-used-to/7130385-02/"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Download
+                      </span>
+                    }
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
                   />

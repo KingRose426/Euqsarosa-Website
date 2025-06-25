@@ -272,3 +272,22 @@
       0.14em -0.035em 0.07em #a5b4fc22, -0.14em 0.035em 0.07em #a78bfa22;
   }
 }
+
+/* Interactive Spotify preview container - no movement, just subtle effects */
+.spotify-embed-container {
+  transition: box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(80, 0, 120, 0.1);
+  background: #18181b;
+}
+.spotify-embed-container:hover {
+  box-shadow: 0 8px 24px rgba(80, 0, 120, 0.18);
+}
+
+.spotify-embed-frame {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: #18181b;
+  border-radius: 16px;
+  border: none;
+}
