@@ -237,7 +237,7 @@ export default function MusicReleaseCard({
                   />
                   {/* JunoDownload (Download) */}
                   <AnimatedDropdownBox
-                    svgSrc="/JunoDownload.svg"
+                    svgSrc="/junodownload.svg"
                     alt="JunoDownload"
                     link="https://junodownload.com/aurora"
                     buttonLabel="Download"
@@ -255,7 +255,7 @@ export default function MusicReleaseCard({
                   />
                   {/* SoundCloud */}
                   <AnimatedDropdownBox
-                    svgSrc="/SoundCloud.svg"
+                    svgSrc="/Soundcloud.svg"
                     alt="SoundCloud"
                     link="https://soundcloud.com/aurora"
                     buttonLabel="Play"
@@ -338,7 +338,7 @@ export default function MusicReleaseCard({
                   />
                   {/* JunoDownload (Download) */}
                   <AnimatedDropdownBox
-                    svgSrc="/JunoDownload.svg"
+                    svgSrc="/junodownload.svg"
                     alt="JunoDownload"
                     link="https://junodownload.com/inyoureyes"
                     buttonLabel="Download"
@@ -356,7 +356,7 @@ export default function MusicReleaseCard({
                   />
                   {/* SoundCloud */}
                   <AnimatedDropdownBox
-                    svgSrc="/SoundCloud.svg"
+                    svgSrc="/Soundcloud.svg"
                     alt="SoundCloud"
                     link="https://soundcloud.com/inyoureyes"
                     buttonLabel="Play"
