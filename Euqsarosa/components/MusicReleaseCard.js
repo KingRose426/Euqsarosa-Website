@@ -145,9 +145,7 @@ export default function MusicReleaseCard({
   }, [isOpen, onAutoScroll]);
 
   const handleMusicServiceClick = () => {
-    // Close the dropdown
-    onToggle();
-    // No scroll logic here anymore
+    // No longer close the dropdown on click
     setTimeout(() => {}, 100);
   };
 
@@ -204,7 +202,25 @@ export default function MusicReleaseCard({
             {/* Dropdown for Aurora */}
             {release.title === "Aurora" && (
               <div className="mb-4">
-                <div className="font-semibold text-white mb-2">
+                {/* Spotify Preview Embed */}
+                <div className="mb-3 flex justify-center">
+                  <iframe
+                    style={{
+                      borderRadius: "16px",
+                      boxShadow: "0 4px 24px rgba(80, 0, 120, 0.15)",
+                      border: "2px solid #a084e8",
+                    }}
+                    src="https://open.spotify.com/embed/track/1tdu2HljUSbkDYTkTlZVC9?utm_source=generator"
+                    width="95%"
+                    height="120"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    allowFullScreen
+                    title="Spotify Preview"
+                  ></iframe>
+                </div>
+                <div className="font-semibold text-white mb-2 text-center">
                   Choose music service
                 </div>
                 <div className="flex flex-col gap-3">
@@ -212,8 +228,21 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Spotify.svg"
                     alt="Spotify"
-                    link="https://open.spotify.com/track/aurora"
+                    link="https://open.spotify.com/album/4exvuPpkjAyzQXHa2sSasH?go=1&nd=1&dlsi=506c1a2743f84f0a"
                     buttonLabel="Play"
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Apple Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/AppleMusic.svg"
+                    alt="Apple Music"
+                    link="https://music.apple.com/gb/song/aurora/1802621118"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
                   />
@@ -221,7 +250,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/YouTube.svg"
                     alt="YouTube"
-                    link="https://youtube.com/watch?v=aurora"
+                    link="https://www.youtube.com/watch?v=8B1AhiPCXRc&list=PLvkJXAYFjFUpua3dL2hmR3lwrJIAOAX7y"
                     buttonLabel="Play"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
@@ -230,7 +259,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Bandcamp.svg"
                     alt="Bandcamp"
-                    link="https://bandcamp.com/aurora"
+                    link="https://flightpattern.bandcamp.com/album/arrivals-vol-8"
                     buttonLabel="Go To"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
@@ -239,7 +268,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/junodownload.svg"
                     alt="JunoDownload"
-                    link="https://junodownload.com/aurora"
+                    link="https://www.junodownload.com/products/euqsarosa-mac-v-tim-cant-arrivals-vol-8/7039671-02/"
                     buttonLabel="Download"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
@@ -248,7 +277,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Beatport.svg"
                     alt="Beatport"
-                    link="https://beatport.com/aurora"
+                    link="https://www.beatport.com/release/arrivals-vol-8/4993670"
                     buttonLabel="Play"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
@@ -257,7 +286,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Soundcloud.svg"
                     alt="SoundCloud"
-                    link="https://soundcloud.com/aurora"
+                    link="https://soundcloud.com/flight-pattern-records/sets/arrivals-vol-8"
                     buttonLabel="Play"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
@@ -266,7 +295,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Tidal.svg"
                     alt="Tidal"
-                    link="https://tidal.com/aurora"
+                    link="https://tidal.com/album/424419881"
                     buttonLabel="Play"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
@@ -275,7 +304,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Deezer.svg"
                     alt="Deezer"
-                    link="https://deezer.com/aurora"
+                    link="https://www.deezer.com/us/album/728705471?app_id=140685"
                     buttonLabel="Play"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
@@ -284,7 +313,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Qobuz.svg"
                     alt="Qobuz"
-                    link="https://qobuz.com/aurora"
+                    link="https://www.qobuz.com/us-en/album/arrivals-vol-8-various-artists/ge4z162j49dbc?lf=976dbaa90b12506c7fa3288f2ba000da"
                     buttonLabel="Play"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
@@ -293,7 +322,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Anghami.svg"
                     alt="Anghami"
-                    link="https://anghami.com/aurora"
+                    link="https://play.anghami.com/album/1066129009?lf=976dbaa90b12506c7fa3288f2ba000da"
                     buttonLabel="Play"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
@@ -305,7 +334,25 @@ export default function MusicReleaseCard({
             {/* Dropdown for In Your Eyes */}
             {release.title === "In Your Eyes" && (
               <div className="mb-4">
-                <div className="font-semibold text-white mb-2">
+                {/* Spotify Preview Embed */}
+                <div className="mb-3 flex justify-center">
+                  <iframe
+                    style={{
+                      borderRadius: "16px",
+                      boxShadow: "0 4px 24px rgba(80, 0, 120, 0.15)",
+                      border: "2px solid #a084e8",
+                    }}
+                    src="https://open.spotify.com/embed/track/0SCoNAciqsTEKWpHiSfYVk?utm_source=generator"
+                    width="95%"
+                    height="120"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    allowFullScreen
+                    title="Spotify Preview"
+                  ></iframe>
+                </div>
+                <div className="font-semibold text-white mb-2 text-center">
                   Choose music service
                 </div>
                 <div className="flex flex-col gap-3">
@@ -313,8 +360,12 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Spotify.svg"
                     alt="Spotify"
-                    link="https://open.spotify.com/track/0SCoNAciqsTEKWpHiSfYVk?utm_source=generator"
-                    buttonLabel="Play"
+                    link="https://open.spotify.com/track/0SCoNAciqsTEKWpHiSfYVk?si=82e8f9fc2079489c"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
                   />
@@ -322,26 +373,38 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/YouTube.svg"
                     alt="YouTube"
-                    link="https://youtube.com/watch?v=inyoureyes"
-                    buttonLabel="Play"
+                    link="https://www.youtube.com/watch?v=wV0v1IWZ4t0"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
                   />
-                  {/* Bandcamp (Go to) */}
+                  {/* YouTube Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/YoutubeMusic.svg"
+                    alt="YouTube Music"
+                    link="https://music.youtube.com/watch?v=5nAl6yfc5CY"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Bandcamp */}
                   <AnimatedDropdownBox
                     svgSrc="/Bandcamp.svg"
                     alt="Bandcamp"
-                    link="https://bandcamp.com/inyoureyes"
-                    buttonLabel="Go To"
-                    buttonHoverClass="hover:bg-[#a084e8]"
-                    onMusicServiceClick={handleMusicServiceClick}
-                  />
-                  {/* JunoDownload (Download) */}
-                  <AnimatedDropdownBox
-                    svgSrc="/junodownload.svg"
-                    alt="JunoDownload"
-                    link="https://junodownload.com/inyoureyes"
-                    buttonLabel="Download"
+                    link="https://dialectaudio.bandcamp.com/track/dialective-euqsarosa-in-your-eyes"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Go To
+                      </span>
+                    }
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
                   />
@@ -349,8 +412,12 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Beatport.svg"
                     alt="Beatport"
-                    link="https://beatport.com/inyoureyes"
-                    buttonLabel="Play"
+                    link="https://www.beatport.com/track/in-your-eyes-feat-dialective/18414572"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
                   />
@@ -358,8 +425,60 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Soundcloud.svg"
                     alt="SoundCloud"
-                    link="https://soundcloud.com/inyoureyes"
-                    buttonLabel="Play"
+                    link="https://soundcloud.com/liquiddnbftws/dialective-euqsarosa-open-your-eyes?si=c329ba9a40c8433f9415724303f6222e&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Apple Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/AppleMusic.svg"
+                    alt="Apple Music"
+                    link="https://music.apple.com/ae/song/in-your-eyes-feat-dialective/1718743426"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* JunoDownload */}
+                  <AnimatedDropdownBox
+                    svgSrc="/junodownload.svg"
+                    alt="JunoDownload"
+                    link="https://www.junodownload.com/products/liquid-selections-i/6411214-02/"
+                    buttonLabel="Download"
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* iTunes Store */}
+                  <AnimatedDropdownBox
+                    svgSrc="/itunesStore.svg"
+                    alt="iTunes Store"
+                    link="https://music.apple.com/ae/song/in-your-eyes-feat-dialective/1718743426"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Download
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Amazon Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/AmazonMusic.svg"
+                    alt="Amazon Music"
+                    link="https://music.amazon.com/tracks/B0CP44LGT2?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_ERCrjWIVIqyvmExWqcryPMKx5"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
                   />
@@ -367,34 +486,7 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/Tidal.svg"
                     alt="Tidal"
-                    link="https://tidal.com/inyoureyes"
-                    buttonLabel="Play"
-                    buttonHoverClass="hover:bg-[#a084e8]"
-                    onMusicServiceClick={handleMusicServiceClick}
-                  />
-                  {/* Deezer */}
-                  <AnimatedDropdownBox
-                    svgSrc="/Deezer.svg"
-                    alt="Deezer"
-                    link="https://deezer.com/inyoureyes"
-                    buttonLabel="Play"
-                    buttonHoverClass="hover:bg-[#a084e8]"
-                    onMusicServiceClick={handleMusicServiceClick}
-                  />
-                  {/* Qobuz (placeholder) */}
-                  <AnimatedDropdownBox
-                    svgSrc="/Qobuz.svg"
-                    alt="Qobuz"
-                    link="https://qobuz.com/inyoureyes"
-                    buttonLabel="Play"
-                    buttonHoverClass="hover:bg-[#a084e8]"
-                    onMusicServiceClick={handleMusicServiceClick}
-                  />
-                  {/* Anghami (custom logo) */}
-                  <AnimatedDropdownBox
-                    svgSrc="/Anghami.svg"
-                    alt="Anghami"
-                    link="https://anghami.com/inyoureyes"
+                    link="https://tidal.com/browse/track/331634289?u"
                     buttonLabel="Play"
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
