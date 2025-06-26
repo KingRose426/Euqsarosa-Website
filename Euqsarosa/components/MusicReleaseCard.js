@@ -848,6 +848,189 @@ export default function MusicReleaseCard({
                 </div>
               </div>
             )}
+
+            {/* Dropdown for Keeping On */}
+            {release.title === "Keeping On" && (
+              <div className="mb-4">
+                {/* Spotify Preview Embed - compact, interactive */}
+                <div className="mb-2 flex justify-center items-center">
+                  <div
+                    className="spotify-embed-container group"
+                    style={{ width: "95%", borderRadius: "16px" }}
+                  >
+                    <iframe
+                      className="spotify-embed-frame"
+                      style={{
+                        borderRadius: "16px",
+                        border: "2px solid #a084e8",
+                        width: "100%",
+                        height: "96px",
+                        background: "#18181b",
+                        margin: 0,
+                        padding: 0,
+                        display: "block",
+                      }}
+                      src="https://open.spotify.com/embed/track/3RxWpfV6ilqc7GQSTY2IDJ?utm_source=generator"
+                      width="100%"
+                      height="96"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      allowFullScreen
+                      title="Spotify Preview"
+                    ></iframe>
+                  </div>
+                </div>
+                <div className="font-semibold text-white mb-2 text-center">
+                  Choose music service
+                </div>
+                <div className="flex flex-col gap-3">
+                  {/* Spotify */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Spotify.svg"
+                    alt="Spotify"
+                    link="https://open.spotify.com/track/3RxWpfV6ilqc7GQSTY2IDJ?si=3d174ecd1af745a7"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* YouTube */}
+                  <AnimatedDropdownBox
+                    svgSrc="/YouTube.svg"
+                    alt="YouTube"
+                    link="https://youtu.be/XxP6uCYHL70?si=GMjDYb_Ou_bSFsca"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Watch
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* SoundCloud */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Soundcloud.svg"
+                    alt="SoundCloud"
+                    link="https://soundcloud.com/beatalistics-records/euqsarosa-keeping-on"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Bandcamp */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Bandcamp.svg"
+                    alt="Bandcamp"
+                    link="https://beatalisticsrecords.bandcamp.com/track/keeping-on"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Go To
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* iTunes Store */}
+                  <AnimatedDropdownBox
+                    svgSrc="/itunesStore.svg"
+                    alt="iTunes Store"
+                    link="https://music.apple.com/us/album/keeping-on/1766713846?i=1766713847"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Download
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Beatport */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Beatport.svg"
+                    alt="Beatport"
+                    link="https://www.beatport.com/release/keeping-on/4721259"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Apple Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/AppleMusic.svg"
+                    alt="Apple Music"
+                    link="https://music.apple.com/us/album/keeping-on/1766713846?i=1766713847"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Deezer */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Deezer.svg"
+                    alt="Deezer"
+                    link="https://www.deezer.com/en/track/2980820181"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Amazon Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/AmazonMusic.svg"
+                    alt="Amazon Music"
+                    link="https://music.amazon.com/albums/B0DG5QQBK6?trackAsin=B0DG5S7LBC"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Tidal */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Tidal.svg"
+                    alt="Tidal"
+                    link="https://listen.tidal.com/album/385446483/track/385446485"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* JunoDownload */}
+                  <AnimatedDropdownBox
+                    svgSrc="/junodownload.svg"
+                    alt="JunoDownload"
+                    link="https://www.junodownload.com/products/euqsarosa-keeping-on/6771904-02/"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Download
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                </div>
+              </div>
+            )}
           </motion.section>
         )}
       </AnimatePresence>
