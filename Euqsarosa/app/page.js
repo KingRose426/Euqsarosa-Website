@@ -197,19 +197,19 @@ export default function Home() {
           <nav className="hidden md:flex space-x-8">
             <a
               href="#music"
-              className="nav-underline text-white/80 hover:text-white transition-colors"
+              className="nav-underline text-white/80 font-bold hover:text-white transition-colors"
             >
               Music
             </a>
             <a
               href="#about"
-              className="nav-underline text-white/80 hover:text-white transition-colors"
+              className="nav-underline text-white/80 font-bold hover:text-white transition-colors"
             >
               About
             </a>
             <a
               href="#contact"
-              className="nav-underline text-white/80 hover:text-white transition-colors"
+              className="nav-underline text-white/80 font-bold hover:text-white transition-colors"
             >
               Contact
             </a>
@@ -340,8 +340,11 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-              Latest Releases
+            <h2
+              className="text-4xl md:text-5xl font-bold mb-6 gradient-text leading-normal"
+              style={{ paddingBottom: "0.15em" }}
+            >
+              Releases Spotlight
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">

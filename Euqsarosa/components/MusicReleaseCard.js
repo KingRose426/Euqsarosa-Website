@@ -186,7 +186,17 @@ export default function MusicReleaseCard({
           </div>
         </div>
         <div className="flex justify-between items-center mb-2">
-          <h3 className="text-xl font-bold text-white">{release.title}</h3>
+          <h3
+            className="text-2xl font-extrabold text-center text-white"
+            style={{
+              fontFamily: "Inter, DM Sans, Arial, sans-serif",
+              letterSpacing: "0.01em",
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            {release.title}
+          </h3>
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
@@ -195,6 +205,180 @@ export default function MusicReleaseCard({
             <ChevronDown className="w-6 h-6 text-white/80" />
           </motion.div>
         </div>
+        {/* Additional info for Never Let Go / Used To */}
+        {release.title === "Never Let Go / Used To" && (
+          <div className="mb-6">
+            <div
+              className="text-sm text-white"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.02em",
+                marginBottom: "2px",
+                textAlign: "left",
+                fontWeight: 400,
+              }}
+            >
+              June 13, 2025
+            </div>
+            <div
+              className="text-sm italic text-white/80"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.04em",
+                fontWeight: 400,
+                opacity: 0.85,
+                textAlign: "left",
+              }}
+            >
+              Sub Wavelength Recordings
+            </div>
+          </div>
+        )}
+        {/* Additional info for Aurora */}
+        {release.title === "Aurora" && (
+          <div className="mb-6">
+            <div
+              className="text-sm text-white"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.02em",
+                marginBottom: "2px",
+                textAlign: "left",
+                fontWeight: 400,
+              }}
+            >
+              April 10, 2025
+            </div>
+            <div
+              className="text-sm italic text-white/80"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.04em",
+                fontWeight: 400,
+                opacity: 0.85,
+                textAlign: "left",
+              }}
+            >
+              Flight Pattern Records
+            </div>
+          </div>
+        )}
+        {/* Additional info for In Your Eyes */}
+        {release.title === "In Your Eyes" && (
+          <div className="mb-6">
+            <div
+              className="text-sm text-white"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.02em",
+                marginBottom: "2px",
+                textAlign: "left",
+                fontWeight: 400,
+              }}
+            >
+              December 16, 2023
+            </div>
+            <div
+              className="text-sm italic text-white/80"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.04em",
+                fontWeight: 400,
+                opacity: 0.85,
+                textAlign: "left",
+              }}
+            >
+              Dialect Audio
+            </div>
+          </div>
+        )}
+        {/* Additional info for Grow */}
+        {release.title === "Grow" && (
+          <div className="mb-6">
+            <div
+              className="text-sm text-white"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.02em",
+                marginBottom: "2px",
+                textAlign: "left",
+                fontWeight: 400,
+              }}
+            >
+              October 11, 2024
+            </div>
+            <div
+              className="text-sm italic text-white/80"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.04em",
+                fontWeight: 400,
+                opacity: 0.85,
+                textAlign: "left",
+              }}
+            >
+              DNBB Group / Liquid Flow
+            </div>
+          </div>
+        )}
+        {/* Additional info for Keeping On */}
+        {release.title === "Keeping On" && (
+          <div className="mb-6">
+            <div
+              className="text-sm text-white"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.02em",
+                marginBottom: "2px",
+                textAlign: "left",
+                fontWeight: 400,
+              }}
+            >
+              October 18, 2024
+            </div>
+            <div
+              className="text-sm italic text-white/80"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.04em",
+                fontWeight: 400,
+                opacity: 0.85,
+                textAlign: "left",
+              }}
+            >
+              Beatalistics Rec.
+            </div>
+          </div>
+        )}
+        {/* Additional info for Incongruency */}
+        {release.title === "Incongruency" && (
+          <div className="mb-6">
+            <div
+              className="text-sm text-white"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.02em",
+                marginBottom: "2px",
+                textAlign: "left",
+                fontWeight: 400,
+              }}
+            >
+              October 15, 2024
+            </div>
+            <div
+              className="text-sm italic text-white/80"
+              style={{
+                fontFamily: "Inter, DM Sans, Arial, sans-serif",
+                letterSpacing: "0.04em",
+                fontWeight: 400,
+                opacity: 0.85,
+                textAlign: "left",
+              }}
+            >
+              Lizplay Records
+            </div>
+          </div>
+        )}
       </motion.div>
 
       <AnimatePresence>
