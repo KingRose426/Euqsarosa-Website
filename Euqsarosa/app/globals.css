@@ -291,3 +291,29 @@
   border-radius: 16px;
   border: none;
 }
+
+.nav-underline {
+  position: relative;
+  display: inline-block;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2.5px;
+  background: linear-gradient(90deg, #a084e8 0%, #764ba2 100%);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.nav-underline:hover::after,
+.nav-underline:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+}

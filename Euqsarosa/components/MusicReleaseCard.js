@@ -273,8 +273,12 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/YouTube.svg"
                     alt="YouTube"
-                    link="https://www.youtube.com/watch?v=8B1AhiPCXRc&list=PLvkJXAYFjFUpua3dL2hmR3lwrJIAOAX7y"
-                    buttonLabel="Play"
+                    link="https://www.youtube.com/watch?v=_tm1V6L6ZKw"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Watch
+                      </span>
+                    }
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
                   />
@@ -407,10 +411,10 @@ export default function MusicReleaseCard({
                   <AnimatedDropdownBox
                     svgSrc="/YouTube.svg"
                     alt="YouTube"
-                    link="https://www.youtube.com/watch?v=wV0v1IWZ4t0"
+                    link="https://youtu.be/wV0v1IWZ4t0?si=DCzOBC7zmZDBAV8D"
                     buttonLabel={
                       <span className="text-white text-base font-extrabold">
-                        Play
+                        Watch
                       </span>
                     }
                     buttonHoverClass="hover:bg-[#a084e8]"
@@ -593,6 +597,19 @@ export default function MusicReleaseCard({
                     buttonHoverClass="hover:bg-[#a084e8]"
                     onMusicServiceClick={handleMusicServiceClick}
                   />
+                  {/* YouTube */}
+                  <AnimatedDropdownBox
+                    svgSrc="/YouTube.svg"
+                    alt="YouTube"
+                    link="https://www.youtube.com/watch?v=zRuqVyBsQZ0&list=PL4_s4Xs2m-BR4AKIHwVLeZ7qjHG8he86F"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Watch
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
                   {/* Bandcamp */}
                   <AnimatedDropdownBox
                     svgSrc="/Bandcamp.svg"
@@ -624,6 +641,202 @@ export default function MusicReleaseCard({
                     svgSrc="/junodownload.svg"
                     alt="JunoDownload"
                     link="https://www.junodownload.com/products/euqsarosa-never-let-go-used-to/7130385-02/"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Download
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Dropdown for Grow */}
+            {release.title === "Grow" && (
+              <div className="mb-4">
+                {/* Spotify Preview Embed - compact, interactive */}
+                <div className="mb-2 flex justify-center items-center">
+                  <div
+                    className="spotify-embed-container group"
+                    style={{ width: "95%", borderRadius: "16px" }}
+                  >
+                    <iframe
+                      className="spotify-embed-frame"
+                      style={{
+                        borderRadius: "16px",
+                        border: "2px solid #a084e8",
+                        width: "100%",
+                        height: "96px",
+                        background: "#18181b",
+                        margin: 0,
+                        padding: 0,
+                        display: "block",
+                      }}
+                      src="https://open.spotify.com/embed/track/12iUl8zcG0fZlbxcIOMM0u?utm_source=generator"
+                      width="100%"
+                      height="96"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      allowFullScreen
+                      title="Spotify Preview"
+                    ></iframe>
+                  </div>
+                </div>
+                <div className="font-semibold text-white mb-2 text-center">
+                  Choose music service
+                </div>
+                <div className="flex flex-col gap-3">
+                  {/* Spotify */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Spotify.svg"
+                    alt="Spotify"
+                    link="https://open.spotify.com/track/12iUl8zcG0fZlbxcIOMM0u?si=1181d59ecf744eb3"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Apple Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/AppleMusic.svg"
+                    alt="Apple Music"
+                    link="https://music.apple.com/ae/album/grow-single/1767963358"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* YouTube */}
+                  <AnimatedDropdownBox
+                    svgSrc="/YouTube.svg"
+                    alt="YouTube"
+                    link="https://www.youtube.com/watch?v=2ZdGuNoNQDI"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Watch
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* YouTube Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/YoutubeMusic.svg"
+                    alt="YouTube Music"
+                    link="https://music.youtube.com/watch?v=3Uoou8Tp2NM&si=ieMfu_lE2QJk-zC7"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Amazon Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/AmazonMusic.svg"
+                    alt="Amazon Music"
+                    link="https://music.amazon.fr/albums/B0DGRLFL6B"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Tidal */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Tidal.svg"
+                    alt="Tidal"
+                    link="https://tidal.com/browse/track/404050903"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Deezer */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Deezer.svg"
+                    alt="Deezer"
+                    link="https://www.deezer.com/en/album/641878811"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Beatport */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Beatport.svg"
+                    alt="Beatport"
+                    link="https://www.beatport.com/release/grow/4731227"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Anghami */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Anghami.svg"
+                    alt="Anghami"
+                    link="https://play.anghami.com/album/1057858206?refer=believe"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Bandcamp */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Bandcamp.svg"
+                    alt="Bandcamp"
+                    link="https://dnbbrecords.bandcamp.com/album/grow"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Go To
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* SoundCloud */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Soundcloud.svg"
+                    alt="SoundCloud"
+                    link="https://soundcloud.com/dnbbrecords/euqsarosa-grow"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* iTunes Store */}
+                  <AnimatedDropdownBox
+                    svgSrc="/itunesStore.svg"
+                    alt="iTunes Store"
+                    link="https://music.apple.com/ae/album/grow-single/1767963358"
                     buttonLabel={
                       <span className="text-white text-base font-extrabold">
                         Download

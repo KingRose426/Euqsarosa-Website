@@ -197,19 +197,19 @@ export default function Home() {
           <nav className="hidden md:flex space-x-8">
             <a
               href="#music"
-              className="text-white/80 hover:text-white transition-colors"
+              className="nav-underline text-white/80 hover:text-white transition-colors"
             >
               Music
             </a>
             <a
               href="#about"
-              className="text-white/80 hover:text-white transition-colors"
+              className="nav-underline text-white/80 hover:text-white transition-colors"
             >
               About
             </a>
             <a
               href="#contact"
-              className="text-white/80 hover:text-white transition-colors"
+              className="nav-underline text-white/80 hover:text-white transition-colors"
             >
               Contact
             </a>
