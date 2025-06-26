@@ -205,10 +205,10 @@ export default function MusicReleaseCard({
             animate="open"
             exit="collapsed"
             variants={{
-              open: { opacity: 1, height: "auto" },
-              collapsed: { opacity: 0, height: 0 },
+              open: { opacity: 1, height: "auto", y: 0 },
+              collapsed: { opacity: 0, height: 0, y: -24 },
             }}
-            transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+            transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
             className="overflow-hidden"
           >
             {/* Dropdown for Aurora */}
@@ -1023,6 +1023,137 @@ export default function MusicReleaseCard({
                     buttonLabel={
                       <span className="text-white text-base font-extrabold">
                         Download
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Dropdown for Incongruency */}
+            {release.title === "Incongruency" && (
+              <div className="mb-4">
+                {/* Spotify Preview Embed - compact, interactive */}
+                <div className="mb-2 flex justify-center items-center">
+                  <div
+                    className="spotify-embed-container group"
+                    style={{ width: "95%", borderRadius: "16px" }}
+                  >
+                    <iframe
+                      className="spotify-embed-frame"
+                      style={{
+                        borderRadius: "16px",
+                        border: "2px solid #a084e8",
+                        width: "100%",
+                        height: "96px",
+                        background: "#18181b",
+                        margin: 0,
+                        padding: 0,
+                        display: "block",
+                      }}
+                      src="https://open.spotify.com/embed/track/4xnVoqewkPXTcKYMKGPJNI?utm_source=generator"
+                      width="100%"
+                      height="96"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      allowFullScreen
+                      title="Spotify Preview"
+                    ></iframe>
+                  </div>
+                </div>
+                <div className="font-semibold text-white mb-2 text-center">
+                  Choose music service
+                </div>
+                <div className="flex flex-col gap-3">
+                  {/* Spotify */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Spotify.svg"
+                    alt="Spotify"
+                    link="https://open.spotify.com/track/4xnVoqewkPXTcKYMKGPJNI?si=6c738753830443a6"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Bandcamp */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Bandcamp.svg"
+                    alt="Bandcamp"
+                    link="https://lizplayrecords.bandcamp.com/track/incongruency"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Go To
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Beatport */}
+                  <AnimatedDropdownBox
+                    svgSrc="/Beatport.svg"
+                    alt="Beatport"
+                    link="https://www.beatport.com/release/incongruency/4704042"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Apple Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/AppleMusic.svg"
+                    alt="Apple Music"
+                    link="https://music.apple.com/us/album/incongruency-single/1764451904"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* JunoDownload */}
+                  <AnimatedDropdownBox
+                    svgSrc="/junodownload.svg"
+                    alt="JunoDownload"
+                    link="https://www.junodownload.com/products/euqsarosa-incongruency/6755535-02/"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Download
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* Amazon Music */}
+                  <AnimatedDropdownBox
+                    svgSrc="/AmazonMusic.svg"
+                    alt="Amazon Music"
+                    link="https://music.amazon.com/tracks/B0DF1Z81SM"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Play
+                      </span>
+                    }
+                    buttonHoverClass="hover:bg-[#a084e8]"
+                    onMusicServiceClick={handleMusicServiceClick}
+                  />
+                  {/* YouTube */}
+                  <AnimatedDropdownBox
+                    svgSrc="/YouTube.svg"
+                    alt="YouTube"
+                    link="https://youtu.be/BbU-IXzRNys?si=Kn3o0HHzq9FH32K7"
+                    buttonLabel={
+                      <span className="text-white text-base font-extrabold">
+                        Watch
                       </span>
                     }
                     buttonHoverClass="hover:bg-[#a084e8]"
