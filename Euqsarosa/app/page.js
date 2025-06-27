@@ -168,6 +168,23 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Close mobile menu when clicking anywhere on screen
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
   const handleMobileNavClick = (e, target) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
@@ -289,18 +306,21 @@ export default function Home() {
           initial={false}
           animate={isMobileMenuOpen ? "open" : "closed"}
           variants={{
-            open: { opacity: 1, height: "auto" },
-            closed: { opacity: 0, height: 0 },
+            open: { opacity: 1, scale: 1, y: 0 },
+            closed: { opacity: 0, scale: 0.95, y: -10 },
           }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="md:hidden overflow-hidden bg-black/30 backdrop-blur-md border-t border-gray-800"
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          className="md:hidden absolute top-full right-0 w-48 bg-black/60 backdrop-blur-md rounded-b-xl border-b border-gray-800 shadow-2xl z-50"
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)",
+          }}
         >
-          <nav className="flex flex-col space-y-4 px-6 py-4">
+          <nav className="flex flex-col py-3">
             <a
               href="#music"
-              className={`transition-colors py-3 border-b border-gray-700/50 cursor-pointer touch-manipulation ${
+              className={`transition-all duration-200 px-4 py-3 cursor-pointer touch-manipulation hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-purple-300/5 ${
                 activeSection === "music"
-                  ? "text-white font-semibold"
+                  ? "text-white font-semibold bg-gradient-to-r from-purple-500/20 to-purple-300/10 border-r-2 border-purple-400"
                   : "text-white/80 hover:text-white"
               }`}
               onClick={(e) => handleMobileNavClick(e, "#music")}
@@ -309,9 +329,9 @@ export default function Home() {
             </a>
             <a
               href="#about"
-              className={`transition-colors py-3 border-b border-gray-700/50 cursor-pointer touch-manipulation ${
+              className={`transition-all duration-200 px-4 py-3 cursor-pointer touch-manipulation hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-purple-300/5 ${
                 activeSection === "about"
-                  ? "text-white font-semibold"
+                  ? "text-white font-semibold bg-gradient-to-r from-purple-500/20 to-purple-300/10 border-r-2 border-purple-400"
                   : "text-white/80 hover:text-white"
               }`}
               onClick={(e) => handleMobileNavClick(e, "#about")}
@@ -320,9 +340,9 @@ export default function Home() {
             </a>
             <a
               href="#contact"
-              className={`transition-colors py-3 cursor-pointer touch-manipulation ${
+              className={`transition-all duration-200 px-4 py-3 cursor-pointer touch-manipulation hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-purple-300/5 ${
                 activeSection === "contact"
-                  ? "text-white font-semibold"
+                  ? "text-white font-semibold bg-gradient-to-r from-purple-500/20 to-purple-300/10 border-r-2 border-purple-400"
                   : "text-white/80 hover:text-white"
               }`}
               onClick={(e) => handleMobileNavClick(e, "#contact")}
