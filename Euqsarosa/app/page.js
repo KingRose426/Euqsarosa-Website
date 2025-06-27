@@ -89,6 +89,7 @@ export default function Home() {
   const [showHeader, setShowHeader] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openMusicCard, setOpenMusicCard] = useState(null);
+  const [activeSection, setActiveSection] = useState("");
   const lastScrollY = useRef(0);
   const isAutoScrollingRef = useRef(false);
   const listenNowRef = useRef(null);
@@ -103,15 +104,57 @@ export default function Home() {
         return;
       }
 
-      if (currentScrollY > lastScrollY.current && currentScrollY > 40) {
-        setShowHeader(false); // scrolling down
+      // Keep header visible if mobile menu is open
+      if (isMobileMenuOpen) {
+        setShowHeader(true);
       } else {
-        setShowHeader(true); // scrolling up
+        if (currentScrollY > lastScrollY.current && currentScrollY > 40) {
+          setShowHeader(false); // scrolling down
+        } else {
+          setShowHeader(true); // scrolling up
+        }
       }
       lastScrollY.current = currentScrollY;
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobileMenuOpen]);
+
+  // Track active section for navigation highlighting
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: "-100px 0px -100px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          setActiveSection(sectionId || "");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  // Clear active section when scrolling back to hero section
+  useEffect(() => {
+    const handleScrollToTop = () => {
+      if (window.scrollY < 100) {
+        setActiveSection("");
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollToTop);
+    return () => window.removeEventListener("scroll", handleScrollToTop);
   }, []);
 
   // Auto-close mobile menu on resize to desktop
@@ -197,19 +240,31 @@ export default function Home() {
           <nav className="hidden md:flex space-x-8">
             <a
               href="#music"
-              className="nav-underline text-white/80 font-bold hover:text-white transition-colors"
+              className={`nav-underline font-bold transition-colors ${
+                activeSection === "music"
+                  ? "text-white nav-underline-active"
+                  : "text-white/80 hover:text-white"
+              }`}
             >
               Music
             </a>
             <a
               href="#about"
-              className="nav-underline text-white/80 font-bold hover:text-white transition-colors"
+              className={`nav-underline font-bold transition-colors ${
+                activeSection === "about"
+                  ? "text-white nav-underline-active"
+                  : "text-white/80 hover:text-white"
+              }`}
             >
               About
             </a>
             <a
               href="#contact"
-              className="nav-underline text-white/80 font-bold hover:text-white transition-colors"
+              className={`nav-underline font-bold transition-colors ${
+                activeSection === "contact"
+                  ? "text-white nav-underline-active"
+                  : "text-white/80 hover:text-white"
+              }`}
             >
               Contact
             </a>
@@ -243,21 +298,33 @@ export default function Home() {
           <nav className="flex flex-col space-y-4 px-6 py-4">
             <a
               href="#music"
-              className="text-white/80 hover:text-white transition-colors py-3 border-b border-gray-700/50 cursor-pointer touch-manipulation"
+              className={`transition-colors py-3 border-b border-gray-700/50 cursor-pointer touch-manipulation ${
+                activeSection === "music"
+                  ? "text-white font-semibold"
+                  : "text-white/80 hover:text-white"
+              }`}
               onClick={(e) => handleMobileNavClick(e, "#music")}
             >
               Music
             </a>
             <a
               href="#about"
-              className="text-white/80 hover:text-white transition-colors py-3 border-b border-gray-700/50 cursor-pointer touch-manipulation"
+              className={`transition-colors py-3 border-b border-gray-700/50 cursor-pointer touch-manipulation ${
+                activeSection === "about"
+                  ? "text-white font-semibold"
+                  : "text-white/80 hover:text-white"
+              }`}
               onClick={(e) => handleMobileNavClick(e, "#about")}
             >
               About
             </a>
             <a
               href="#contact"
-              className="text-white/80 hover:text-white transition-colors py-3 cursor-pointer touch-manipulation"
+              className={`transition-colors py-3 cursor-pointer touch-manipulation ${
+                activeSection === "contact"
+                  ? "text-white font-semibold"
+                  : "text-white/80 hover:text-white"
+              }`}
               onClick={(e) => handleMobileNavClick(e, "#contact")}
             >
               Contact
@@ -371,38 +438,42 @@ export default function Home() {
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text text-center">
-            About
+            About Euqsarosa
           </h2>
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-16 shadow-lg">
-            <div className="flex-1 flex justify-center w-full mb-6 md:mb-0">
-              <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-80 lg:h-80">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 flex flex-col-reverse md:flex-row items-stretch justify-center gap-6 md:gap-0 shadow-lg">
+            <div className="flex-1 md:flex-[1] flex justify-center w-full mb-6 md:mb-0">
+              <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl md:rounded-r-none shadow-xl border-4 border-white/10 overflow-hidden">
                 <Image
                   src="/profile.jpg"
                   alt="Photograph of Euqsarosa"
                   layout="fill"
                   objectFit="cover"
-                  className="rounded-2xl shadow-xl border-4 border-white/10"
+                  className="rounded-2xl md:rounded-r-none"
                   loading="lazy"
                 />
               </div>
             </div>
-            <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left w-full">
-              <p className="text-xl text-white/70 mb-4">
-                Euqsarosa is a Drum & Bass producer based in Dubai, UAE.
+            <div className="flex-1 md:flex-[2] flex flex-col items-start text-left w-full bg-black/10 rounded-xl md:rounded-l-none shadow border border-white/10 p-4 sm:p-6">
+              <p
+                className="text-white/80 text-left text-justify text-base sm:text-base leading-relaxed"
+                style={{
+                  fontFamily:
+                    "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                }}
+              >
+                Shahrose Atique is a Drum & Bass producer based in Dubai, UAE.
+                <br />
+                <br />
+                What initially started out as a curious hobby back in his
+                university days eventually led up to his obsession with
+                producing music as a creative outlet, all the while being
+                deployed out in the oilfields for months at a time.
+                <br />
+                <br />
+                His love for D&amp;B as well as inspiration drew from artists
+                like Calibre, Mohican Sun, LSB, Tokyo Prose, Etherwood,
+                Technimatic, and many more.
               </p>
-              <div className="mb-6 w-full flex flex-col items-center md:items-start">
-                <h3 className="text-base uppercase tracking-widest font-bold text-purple-300 mb-3 text-center md:text-left">
-                  Record Label Releases
-                </h3>
-                <div className="flex flex-col gap-1 text-white/80 text-base text-center md:text-left md:pl-6">
-                  <span>Flight Pattern Recordings</span>
-                  <span>Sub Wavelength Recordings</span>
-                  <span>Lizplay Records</span>
-                  <span>Dialect Audio</span>
-                  <span>Beatalistics Rec.</span>
-                  <span>Liquid Flow Records</span>
-                </div>
-              </div>
             </div>
           </div>
         </motion.div>
@@ -471,7 +542,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center space-x-4">
               <a
-                href="mailto:contact@euqsarosa.com"
+                href="mailto:euqsarosaprod@gmail.com"
                 className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300"
               >
                 Email
