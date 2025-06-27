@@ -67,6 +67,7 @@ function AnimatedDropdownBox({
           width={80}
           height={80}
           className="object-contain w-full h-full"
+          loading="lazy"
         />
       </div>
       <span
@@ -171,10 +172,25 @@ export default function MusicReleaseCard({
         <div className="w-full h-80 mb-4 relative group">
           <Image
             src={release.imageUrl}
-            alt={`${release.title} album art`}
+            alt={
+              release.title === "Never Let Go / Used To"
+                ? "Cover art of Never Let Go / Used To"
+                : release.title === "Aurora"
+                ? "Cover art of Aurora"
+                : release.title === "In Your Eyes"
+                ? "Cover art of In Your Eyes"
+                : release.title === "Grow"
+                ? "Cover art of Grow"
+                : release.title === "Keeping On"
+                ? "Cover art of Keeping On"
+                : release.title === "Incongruency"
+                ? "Cover art of Incongruency"
+                : `${release.title} album art`
+            }
             layout="fill"
             objectFit="contain"
             className="rounded-xl"
+            loading="lazy"
           />
           <div className="absolute inset-0 rounded-xl bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <motion.div

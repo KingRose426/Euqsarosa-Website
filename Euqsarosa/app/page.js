@@ -378,10 +378,11 @@ export default function Home() {
               <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-80 lg:h-80">
                 <Image
                   src="/profile.jpg"
-                  alt="A photo of Euqsarosa"
+                  alt="Photograph of Euqsarosa"
                   layout="fill"
                   objectFit="cover"
                   className="rounded-2xl shadow-xl border-4 border-white/10"
+                  loading="lazy"
                 />
               </div>
             </div>
