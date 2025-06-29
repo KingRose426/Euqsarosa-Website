@@ -344,3 +344,29 @@
   background: linear-gradient(90deg, #a084e8, #c7d2fe);
   box-shadow: 0 0 8px rgba(160, 132, 232, 0.5);
 }
+
+/* Add scroll margin for sections to account for fixed header */
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Ensure hamburger menu works on all devices */
+@media (max-width: 1024px) {
+  /* Prevent text selection on mobile menu items */
+  .mobile-nav-underline {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Ensure proper touch targets */
+  .mobile-nav-underline a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

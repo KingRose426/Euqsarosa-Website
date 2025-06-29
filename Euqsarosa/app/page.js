@@ -186,7 +186,7 @@ export default function Home() {
   // Auto-close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -194,33 +194,14 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Close mobile menu when clicking anywhere on screen
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    if (isMobileMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isMobileMenuOpen]);
-
-  const handleMobileNavClick = (e, target) => {
-    e.preventDefault();
+  const handleMobileNavLink = (target) => {
     setIsMobileMenuOpen(false);
 
-    // Add a small delay to ensure the menu closes before scrolling
+    // Use setTimeout to ensure menu closes before scrolling
     setTimeout(() => {
       const el = document.querySelector(target);
       if (el) {
-        // Calculate the offset for the fixed header
-        const headerHeight = 80; // Approximate header height
+        const headerHeight = 100;
         const elementPosition = el.offsetTop - headerHeight;
 
         window.scrollTo({
@@ -228,7 +209,50 @@ export default function Home() {
           behavior: "smooth",
         });
       }
-    }, 100);
+    }, 150);
+  };
+
+  const handleMobileClick = (target) => {
+    console.log("Mobile click triggered for:", target);
+
+    // Find the element
+    const element = document.getElementById(target.replace("#", ""));
+    console.log("Found element:", element);
+
+    if (element) {
+      // Close menu first
+      setIsMobileMenuOpen(false);
+
+      // Add a delay to ensure menu closes before scrolling
+      setTimeout(() => {
+        console.log("Scrolling to element");
+
+        // Try scrollIntoView first
+        try {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        } catch (error) {
+          console.log("scrollIntoView failed, trying alternative method");
+          // Fallback to window.scrollTo
+          const headerHeight = 100;
+          const elementPosition = element.offsetTop - headerHeight;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 300); // Increased delay to ensure menu animation completes
+    } else {
+      console.log("Element not found for target:", target);
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const toggleMobileMenu = () => {
+    console.log("Toggle mobile menu called, current state:", isMobileMenuOpen);
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const handleMusicCardToggle = (cardTitle) => {
@@ -280,7 +304,7 @@ export default function Home() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8">
             <a
               href="#music"
               className={`nav-underline font-bold transition-colors ${
@@ -315,10 +339,11 @@ export default function Home() {
 
           {/* Mobile Navigation Button */}
           <button
-            className="md:hidden p-2 text-white/80 hover:text-white transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-3 text-white/80 hover:text-white transition-colors touch-manipulation select-none"
+            onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
             ref={mobileMenuButtonRef}
+            style={{ minWidth: "44px", minHeight: "44px" }}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -329,55 +354,72 @@ export default function Home() {
         </div>
 
         {/* Mobile Navigation Dropdown */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={false}
-            animate={isMobileMenuOpen ? "open" : "closed"}
-            variants={{
-              open: { opacity: 1, scale: 1, y: 0 },
-              closed: { opacity: 0, scale: 0.95, y: -10 },
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-black/30 backdrop-blur-md border-t border-gray-800"
-            ref={mobileMenuRef}
-          >
-            <nav className="flex flex-col py-3">
-              <a
-                href="#music"
-                className={`mobile-nav-underline font-bold transition-colors py-3 cursor-pointer touch-manipulation ${
-                  activeSection === "music"
-                    ? "text-white mobile-nav-underline-active"
-                    : "text-white/80 hover:text-white"
-                }`}
-                onClick={(e) => handleMobileNavClick(e, "#music")}
-              >
-                <span>Music</span>
-              </a>
-              <a
-                href="#about"
-                className={`mobile-nav-underline font-bold transition-colors py-3 cursor-pointer touch-manipulation ${
-                  activeSection === "about"
-                    ? "text-white mobile-nav-underline-active"
-                    : "text-white/80 hover:text-white"
-                }`}
-                onClick={(e) => handleMobileNavClick(e, "#about")}
-              >
-                <span>About</span>
-              </a>
-              <a
-                href="#contact"
-                className={`mobile-nav-underline font-bold transition-colors py-3 cursor-pointer touch-manipulation ${
-                  activeSection === "contact"
-                    ? "text-white mobile-nav-underline-active"
-                    : "text-white/80 hover:text-white"
-                }`}
-                onClick={(e) => handleMobileNavClick(e, "#contact")}
-              >
-                <span>Contact</span>
-              </a>
-            </nav>
-          </motion.div>
-        )}
+        <motion.div
+          initial={false}
+          animate={isMobileMenuOpen ? "open" : "closed"}
+          variants={{
+            open: { opacity: 1, height: "auto" },
+            closed: { opacity: 0, height: 0 },
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="lg:hidden overflow-hidden bg-black/30 backdrop-blur-md border-t border-gray-800"
+          ref={mobileMenuRef}
+          style={{ touchAction: "manipulation" }}
+        >
+          <nav className="flex flex-col py-3">
+            <a
+              href="#music"
+              className={`mobile-nav-underline font-bold transition-colors py-4 px-6 cursor-pointer touch-manipulation select-none border-b border-white/10 ${
+                activeSection === "music"
+                  ? "text-white mobile-nav-underline-active"
+                  : "text-white/80 hover:text-white"
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("Music link clicked");
+                handleMobileClick("#music");
+              }}
+              style={{ minHeight: "44px" }}
+            >
+              <span>Music</span>
+            </a>
+            <a
+              href="#about"
+              className={`mobile-nav-underline font-bold transition-colors py-4 px-6 cursor-pointer touch-manipulation select-none border-b border-white/10 ${
+                activeSection === "about"
+                  ? "text-white mobile-nav-underline-active"
+                  : "text-white/80 hover:text-white"
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("About link clicked");
+                handleMobileClick("#about");
+              }}
+              style={{ minHeight: "44px" }}
+            >
+              <span>About</span>
+            </a>
+            <a
+              href="#contact"
+              className={`mobile-nav-underline font-bold transition-colors py-4 px-6 cursor-pointer touch-manipulation select-none ${
+                activeSection === "contact"
+                  ? "text-white mobile-nav-underline-active"
+                  : "text-white/80 hover:text-white"
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("Contact link clicked");
+                handleMobileClick("#contact");
+              }}
+              style={{ minHeight: "44px" }}
+            >
+              <span>Contact</span>
+            </a>
+          </nav>
+        </motion.div>
       </header>
 
       {/* Hero Section */}
@@ -445,17 +487,17 @@ export default function Home() {
       </section>
 
       {/* Music Section */}
-      <section id="music" className="py-20 px-6 bg-black/20">
+      <section id="music" className="py-16 px-6 bg-black/20">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2
-              className="text-4xl md:text-5xl font-bold mb-6 gradient-text leading-normal"
+              className="text-4xl md:text-5xl font-bold mb-4 gradient-text leading-normal"
               style={{ paddingBottom: "0.15em" }}
             >
               Releases Spotlight
@@ -476,7 +518,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6">
+      <section id="about" className="py-16 px-6">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -484,7 +526,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text text-center">
             About Euqsarosa
           </h2>
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 flex flex-col-reverse md:flex-row items-stretch justify-center gap-6 md:gap-0 shadow-lg">
@@ -565,7 +607,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-black/20">
+      <section id="contact" className="py-16 px-6 bg-black/20">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -573,7 +615,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
             Connect
           </h2>
           <p className="text-xl text-white/70 mb-12">
