@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["assets.brandfetch.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "assets.brandfetch.io",
+      },
+    ],
   },
 };
 

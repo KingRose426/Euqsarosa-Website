@@ -187,9 +187,8 @@ export default function MusicReleaseCard({
                 ? "Cover art of Incongruency"
                 : `${release.title} album art`
             }
-            layout="fill"
-            objectFit="contain"
-            className="rounded-xl"
+            fill
+            className="rounded-xl object-contain"
             loading="lazy"
           />
           <div className="absolute inset-0 rounded-xl bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">

@@ -93,6 +93,8 @@ export default function Home() {
   const lastScrollY = useRef(0);
   const isAutoScrollingRef = useRef(false);
   const listenNowRef = useRef(null);
+  const mobileMenuRef = useRef(null);
+  const mobileMenuButtonRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -118,6 +120,30 @@ export default function Home() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobileMenuOpen]);
+
+  // Click outside handler to close mobile menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target) &&
+        mobileMenuButtonRef.current &&
+        !mobileMenuButtonRef.current.contains(event.target)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
   }, [isMobileMenuOpen]);
 
   // Track active section for navigation highlighting
@@ -275,6 +301,7 @@ export default function Home() {
             className="md:hidden p-2 text-white/80 hover:text-white transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
+            ref={mobileMenuButtonRef}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -294,40 +321,41 @@ export default function Home() {
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="md:hidden overflow-hidden bg-black/30 backdrop-blur-md border-t border-gray-800"
+          ref={mobileMenuRef}
         >
           <nav className="flex flex-col space-y-4 px-6 py-4">
             <a
               href="#music"
-              className={`transition-colors py-3 border-b border-gray-700/50 cursor-pointer touch-manipulation ${
+              className={`mobile-nav-underline font-bold transition-colors py-3 cursor-pointer touch-manipulation ${
                 activeSection === "music"
-                  ? "text-white font-semibold"
+                  ? "text-white mobile-nav-underline-active"
                   : "text-white/80 hover:text-white"
               }`}
               onClick={(e) => handleMobileNavClick(e, "#music")}
             >
-              Music
+              <span>Music</span>
             </a>
             <a
               href="#about"
-              className={`transition-colors py-3 border-b border-gray-700/50 cursor-pointer touch-manipulation ${
+              className={`mobile-nav-underline font-bold transition-colors py-3 cursor-pointer touch-manipulation ${
                 activeSection === "about"
-                  ? "text-white font-semibold"
+                  ? "text-white mobile-nav-underline-active"
                   : "text-white/80 hover:text-white"
               }`}
               onClick={(e) => handleMobileNavClick(e, "#about")}
             >
-              About
+              <span>About</span>
             </a>
             <a
               href="#contact"
-              className={`transition-colors py-3 cursor-pointer touch-manipulation ${
+              className={`mobile-nav-underline font-bold transition-colors py-3 cursor-pointer touch-manipulation ${
                 activeSection === "contact"
-                  ? "text-white font-semibold"
+                  ? "text-white mobile-nav-underline-active"
                   : "text-white/80 hover:text-white"
               }`}
               onClick={(e) => handleMobileNavClick(e, "#contact")}
             >
-              Contact
+              <span>Contact</span>
             </a>
           </nav>
         </motion.div>
@@ -441,21 +469,59 @@ export default function Home() {
             About Euqsarosa
           </h2>
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 flex flex-col-reverse md:flex-row items-stretch justify-center gap-6 md:gap-0 shadow-lg">
-            <div className="flex-1 md:flex-[1] flex justify-center w-full mb-6 md:mb-0">
+            {/* Desktop: Photo on the left */}
+            <div className="hidden md:flex flex-1 md:flex-[1] justify-center w-full mb-6 md:mb-0">
               <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl md:rounded-r-none shadow-xl border-4 border-white/10 overflow-hidden">
                 <Image
                   src="/profile.jpg"
                   alt="Photograph of Euqsarosa"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-2xl md:rounded-r-none"
+                  fill
+                  className="rounded-2xl md:rounded-r-none object-cover"
                   loading="lazy"
                 />
               </div>
             </div>
+
+            {/* Text content with integrated photo for mobile */}
             <div className="flex-1 md:flex-[2] flex flex-col items-start text-left w-full bg-black/10 rounded-xl md:rounded-l-none shadow border border-white/10 p-4 sm:p-6">
+              {/* Mobile: Photo integrated at top left with text wrapping */}
+              <div className="md:hidden relative">
+                <div className="float-left mr-2">
+                  <div className="relative w-28 h-28 rounded-xl shadow-lg border-2 border-white/10 overflow-hidden flex-shrink-0">
+                    <Image
+                      src="/profile.jpg"
+                      alt="Photograph of Euqsarosa"
+                      fill
+                      className="rounded-xl object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <p
+                  className="text-white/80 text-left text-justify text-sm leading-relaxed"
+                  style={{
+                    fontFamily:
+                      "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                  }}
+                >
+                  Shahrose Atique is a Drum & Bass producer based in Dubai, UAE.
+                  <br />
+                  <br />
+                  What started out as a curious hobby back in his university
+                  days led up to his obsession with producing music as a
+                  creative outlet, all the while being deployed out in the
+                  oilfields for months at a time.
+                  <br />
+                  <br />
+                  His love for D&amp;B as well as inspiration drew from artists
+                  like Calibre, Mohican Sun, LSB, Tokyo Prose, Etherwood,
+                  Technimatic, and many more.
+                </p>
+              </div>
+
+              {/* Desktop: Full text */}
               <p
-                className="text-white/80 text-left text-justify text-base sm:text-base leading-relaxed"
+                className="hidden md:block text-white/80 text-left text-justify text-base sm:text-base leading-relaxed"
                 style={{
                   fontFamily:
                     "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
@@ -536,7 +602,13 @@ export default function Home() {
 
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">Get in Touch</h3>
-            <p className="text-white/80 mb-6">
+            <p
+              className="text-white/80 mb-6 text-sm md:text-base leading-relaxed"
+              style={{
+                fontFamily:
+                  "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              }}
+            >
               For bookings, collaborations, or just to say hello, reach out
               through any of the social channels above or send a direct message.
             </p>
@@ -565,8 +637,14 @@ export default function Home() {
               EUQSAROSA
             </span>
           </div>
-          <p className="text-white/60">
-            © 2025 Euqsarosa. All rights reserved.
+          <p
+            className="text-white/60 text-sm font-medium tracking-wide"
+            style={{
+              fontFamily:
+                "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            }}
+          >
+            © 2025 Euqsarosa
           </p>
         </div>
       </footer>
