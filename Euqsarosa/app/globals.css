@@ -316,3 +316,31 @@
   background: linear-gradient(90deg, #a084e8, #c7d2fe);
   box-shadow: 0 0 8px rgba(160, 132, 232, 0.5);
 }
+
+/* Mobile-specific underline styles */
+.mobile-nav-underline {
+  position: relative;
+  display: block;
+}
+
+.mobile-nav-underline span {
+  position: relative;
+  display: inline-block;
+}
+
+.mobile-nav-underline span::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #a084e8, #c7d2fe);
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-underline-active span::after {
+  width: 100%;
+  background: linear-gradient(90deg, #a084e8, #c7d2fe);
+  box-shadow: 0 0 8px rgba(160, 132, 232, 0.5);
+}
