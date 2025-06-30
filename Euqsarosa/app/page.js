@@ -705,7 +705,7 @@ export default function Home() {
                 "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
             }}
           >
-            © 2025 Euqsarosa
+            ©2025 Euqsarosa
           </p>
         </div>
       </footer>
