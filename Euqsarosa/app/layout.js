@@ -33,6 +33,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
