@@ -512,8 +512,8 @@ export default function MusicReleaseCard({
                         />
                       </div>
                       {/* Music Title below cover art */}
-                      <div
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                      <h3
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
                         style={{
                           fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
@@ -522,7 +522,7 @@ export default function MusicReleaseCard({
                         }}
                       >
                         {release.title}
-                      </div>
+                      </h3>
                       {/* Spotify Preview Embed */}
                       <div className="mb-5 mt-5 flex justify-center items-center w-full">
                         <div
@@ -913,8 +913,8 @@ export default function MusicReleaseCard({
                         />
                       </div>
                       {/* Music Title below cover art */}
-                      <div
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                      <h3
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
                         style={{
                           fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
@@ -923,7 +923,7 @@ export default function MusicReleaseCard({
                         }}
                       >
                         {release.title}
-                      </div>
+                      </h3>
                       {/* Spotify Preview Embed */}
                       <div className="mb-5 mt-5 flex justify-center items-center w-full">
                         <div
@@ -1142,8 +1142,8 @@ export default function MusicReleaseCard({
                         />
                       </div>
                       {/* Music Title below cover art */}
-                      <div
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                      <h3
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
                         style={{
                           fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
@@ -1152,7 +1152,7 @@ export default function MusicReleaseCard({
                         }}
                       >
                         {release.title}
-                      </div>
+                      </h3>
                       {/* Spotify Preview Embed */}
                       <div className="mb-5 mt-5 flex justify-center items-center w-full">
                         <div
@@ -1335,8 +1335,8 @@ export default function MusicReleaseCard({
                         />
                       </div>
                       {/* Music Title below cover art */}
-                      <div
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                      <h3
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
                         style={{
                           fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
@@ -1345,7 +1345,7 @@ export default function MusicReleaseCard({
                         }}
                       >
                         {release.title}
-                      </div>
+                      </h3>
                       {/* Spotify Preview Embed */}
                       <div className="mb-5 mt-5 flex justify-center items-center w-full">
                         <div
@@ -1685,8 +1685,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+              <h3
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -1695,7 +1695,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </div>
+              </h3>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div
@@ -1903,8 +1903,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+              <h3
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -1913,7 +1913,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </div>
+              </h3>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div
@@ -2120,8 +2120,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+              <h3
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -2130,7 +2130,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </div>
+              </h3>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div
@@ -2349,8 +2349,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+              <h3
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -2359,7 +2359,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </div>
+              </h3>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div
@@ -2542,8 +2542,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+              <h3
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -2552,7 +2552,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </div>
+              </h3>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div
