@@ -595,19 +595,22 @@ export default function Home() {
             <div className="flex-1 md:flex-[2] flex flex-col items-start text-left w-full bg-black/10 rounded-xl md:rounded-l-none shadow border border-white/10 p-4 sm:p-6">
               {/* Mobile: Photo integrated at top left with text wrapping */}
               <div className="md:hidden relative">
-                <div className="float-left mr-2">
-                  <div className="relative w-28 h-28 rounded-xl shadow-lg border-2 border-white/10 overflow-hidden flex-shrink-0">
+                <div className="float-left mr-4 mb-2">
+                  <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-2xl shadow-lg border-2 border-white/10 overflow-hidden flex-shrink-0">
                     <Image
                       src="/profile.jpg"
                       alt="Photograph of Euqsarosa"
                       fill
-                      className="rounded-xl object-cover"
+                      className="rounded-2xl object-cover"
                       loading="lazy"
                     />
                   </div>
                 </div>
-                <p className="text-white/80 text-left text-justify text-sm leading-relaxed">
-                  Shahrose Atique is a Drum & Bass producer based in Dubai, UAE.
+                <p
+                  className="text-white/80 text-left text-justify text-sm leading-relaxed"
+                  style={{ hyphens: "auto", textWrap: "balance" }}
+                >
+                  Shahrose Atique is a producer based in Dubai, UAE.
                   <br />
                   <br />
                   What started out as a curious hobby back in his university

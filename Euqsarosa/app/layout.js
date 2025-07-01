@@ -1,6 +1,8 @@
 import { Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { cookies } from "next/headers";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dmsans" });
@@ -80,6 +82,8 @@ export default function RootLayout({ children }) {
         className={`${inter.variable} ${dmSans.variable} bg-gray-950 text-white`}
       >
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
