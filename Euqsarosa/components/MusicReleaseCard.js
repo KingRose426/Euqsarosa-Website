@@ -902,7 +902,7 @@ export default function MusicReleaseCard({
                       </div>
                       {/* Music Title below cover art */}
                       <div
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                         style={{
                           letterSpacing: "0.01em",
                           margin: 4,
@@ -912,7 +912,7 @@ export default function MusicReleaseCard({
                         {release.title}
                       </div>
                       {/* REMOVE Spotify Preview Embed from overlay for Aurora */}
-                      <div className="font-semibold text-white mb-2 text-center">
+                      <div className="font-semibold text-white mt-4 mb-2 text-center">
                         Choose music service
                       </div>
                       <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
@@ -1274,7 +1274,7 @@ export default function MusicReleaseCard({
                       </div>
                       {/* Music Title below cover art */}
                       <div
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                         style={{
                           letterSpacing: "0.01em",
                           margin: 4,
@@ -1283,36 +1283,8 @@ export default function MusicReleaseCard({
                       >
                         {release.title}
                       </div>
-                      {/* Spotify Preview Embed */}
-                      <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                        <div
-                          className="spotify-embed-container group w-full max-w-[320px]"
-                          style={{ borderRadius: "16px" }}
-                        >
-                          <iframe
-                            className="spotify-embed-frame"
-                            style={{
-                              borderRadius: "16px",
-                              border: "2px solid #a084e8",
-                              width: "100%",
-                              height: "96px",
-                              background: "#18181b",
-                              margin: 0,
-                              padding: 0,
-                              display: "block",
-                            }}
-                            src="https://open.spotify.com/embed/track/12iUl8zcG0fZlbxcIOMM0u?utm_source=generator"
-                            width="100%"
-                            height="96"
-                            frameBorder="0"
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                            allowFullScreen
-                            title="Spotify Preview"
-                          ></iframe>
-                        </div>
-                      </div>
-                      <div className="font-semibold text-white mb-2 text-center">
+                      {/* REMOVE Spotify Preview Embed from overlay for Grow */}
+                      <div className="font-semibold text-white mt-4 mb-2 text-center">
                         Choose music service
                       </div>
                       <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
@@ -1502,7 +1474,7 @@ export default function MusicReleaseCard({
                       </div>
                       {/* Music Title below cover art */}
                       <div
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                         style={{
                           letterSpacing: "0.01em",
                           margin: 4,
@@ -1511,36 +1483,8 @@ export default function MusicReleaseCard({
                       >
                         {release.title}
                       </div>
-                      {/* Spotify Preview Embed */}
-                      <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                        <div
-                          className="spotify-embed-container group w-full max-w-[320px]"
-                          style={{ borderRadius: "16px" }}
-                        >
-                          <iframe
-                            className="spotify-embed-frame"
-                            style={{
-                              borderRadius: "16px",
-                              border: "2px solid #a084e8",
-                              width: "100%",
-                              height: "96px",
-                              background: "#18181b",
-                              margin: 0,
-                              padding: 0,
-                              display: "block",
-                            }}
-                            src="https://open.spotify.com/embed/track/3RxWpfV6ilqc7GQSTY2IDJ?utm_source=generator"
-                            width="100%"
-                            height="96"
-                            frameBorder="0"
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                            allowFullScreen
-                            title="Spotify Preview"
-                          ></iframe>
-                        </div>
-                      </div>
-                      <div className="font-semibold text-white mb-2 text-center">
+                      {/* REMOVE Spotify Preview Embed from overlay for Keeping On */}
+                      <div className="font-semibold text-white mt-4 mb-2 text-center">
                         Choose music service
                       </div>
                       <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
@@ -1694,7 +1638,7 @@ export default function MusicReleaseCard({
                       </div>
                       {/* Music Title below cover art */}
                       <div
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                         style={{
                           letterSpacing: "0.01em",
                           margin: 4,
@@ -1703,36 +1647,8 @@ export default function MusicReleaseCard({
                       >
                         {release.title}
                       </div>
-                      {/* Spotify Preview Embed */}
-                      <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                        <div
-                          className="spotify-embed-container group w-full max-w-[320px]"
-                          style={{ borderRadius: "16px" }}
-                        >
-                          <iframe
-                            className="spotify-embed-frame"
-                            style={{
-                              borderRadius: "16px",
-                              border: "2px solid #a084e8",
-                              width: "100%",
-                              height: "96px",
-                              background: "#18181b",
-                              margin: 0,
-                              padding: 0,
-                              display: "block",
-                            }}
-                            src="https://open.spotify.com/embed/track/4xnVoqewkPXTcKYMKGPJNI?utm_source=generator"
-                            width="100%"
-                            height="96"
-                            frameBorder="0"
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                            allowFullScreen
-                            title="Spotify Preview"
-                          ></iframe>
-                        </div>
-                      </div>
-                      <div className="font-semibold text-white mb-2 text-center">
+                      {/* REMOVE Spotify Preview Embed from overlay for Incongruency */}
+                      <div className="font-semibold text-white mt-4 mb-2 text-center">
                         Choose music service
                       </div>
                       <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
@@ -1878,7 +1794,7 @@ export default function MusicReleaseCard({
               </div>
               {/* Music Title below cover art with extra spacing */}
               <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                 style={{
                   letterSpacing: "0.01em",
                   margin: 4,
@@ -1888,7 +1804,7 @@ export default function MusicReleaseCard({
                 {release.title}
               </div>
               {/* REMOVE Spotify Preview Embed from overlay for Never Let Go / Used To */}
-              <div className="font-semibold text-white mb-2 text-center">
+              <div className="font-semibold text-white mt-4 mb-2 text-center">
                 Choose music service
               </div>
               <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
@@ -2014,7 +1930,7 @@ export default function MusicReleaseCard({
               </div>
               {/* Music Title below cover art */}
               <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                 style={{
                   letterSpacing: "0.01em",
                   margin: 4,
@@ -2024,7 +1940,7 @@ export default function MusicReleaseCard({
                 {release.title}
               </div>
               {/* REMOVE Spotify Preview Embed from overlay for Aurora */}
-              <div className="font-semibold text-white mb-2 text-center">
+              <div className="font-semibold text-white mt-4 mb-2 text-center">
                 Choose music service
               </div>
               <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
@@ -2203,7 +2119,7 @@ export default function MusicReleaseCard({
               </div>
               {/* Music Title below cover art */}
               <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                 style={{
                   letterSpacing: "0.01em",
                   margin: 4,
@@ -2213,7 +2129,7 @@ export default function MusicReleaseCard({
                 {release.title}
               </div>
               {/* REMOVE Spotify Preview Embed from overlay for In Your Eyes */}
-              <div className="font-semibold text-white mb-2 text-center">
+              <div className="font-semibold text-white mt-4 mb-2 text-center">
                 Choose music service
               </div>
               <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
@@ -2391,7 +2307,7 @@ export default function MusicReleaseCard({
               </div>
               {/* Music Title below cover art */}
               <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                 style={{
                   letterSpacing: "0.01em",
                   margin: 4,
@@ -2401,7 +2317,7 @@ export default function MusicReleaseCard({
                 {release.title}
               </div>
               {/* REMOVE Spotify Preview Embed from overlay for Grow */}
-              <div className="font-semibold text-white mb-2 text-center">
+              <div className="font-semibold text-white mt-4 mb-2 text-center">
                 Choose music service
               </div>
               <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
@@ -2591,7 +2507,7 @@ export default function MusicReleaseCard({
               </div>
               {/* Music Title below cover art */}
               <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                 style={{
                   letterSpacing: "0.01em",
                   margin: 4,
@@ -2601,7 +2517,7 @@ export default function MusicReleaseCard({
                 {release.title}
               </div>
               {/* REMOVE Spotify Preview Embed from overlay for Keeping On */}
-              <div className="font-semibold text-white mb-2 text-center">
+              <div className="font-semibold text-white mt-4 mb-2 text-center">
                 Choose music service
               </div>
               <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
@@ -2755,7 +2671,7 @@ export default function MusicReleaseCard({
               </div>
               {/* Music Title below cover art */}
               <div
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
+                className="text-xl font-extrabold text-center text-white mt-4 mb-8"
                 style={{
                   letterSpacing: "0.01em",
                   margin: 4,
@@ -2765,7 +2681,7 @@ export default function MusicReleaseCard({
                 {release.title}
               </div>
               {/* REMOVE Spotify Preview Embed from overlay for Incongruency */}
-              <div className="font-semibold text-white mb-2 text-center">
+              <div className="font-semibold text-white mt-4 mb-2 text-center">
                 Choose music service
               </div>
               <div className="flex flex-col divide-y divide-white/20 pb-0 mb-0 w-full">
