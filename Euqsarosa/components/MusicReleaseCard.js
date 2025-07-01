@@ -57,7 +57,7 @@ function AnimatedDropdownBox({
       target="_blank"
       rel="noopener noreferrer"
       ref={boxRef}
-      className="relative flex items-center bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] rounded-xl shadow-md p-3 transition-colors duration-200 overflow-hidden animated-gradient-box group"
+      className="platform-link-box relative flex items-center bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] rounded-xl shadow-md p-3 transition-colors duration-200 overflow-hidden animated-gradient-box group"
       onMouseMove={handleMouseMove}
       onClick={handleClick}
     >
@@ -72,7 +72,7 @@ function AnimatedDropdownBox({
         />
       </div>
       <span
-        className={`ml-auto px-4 py-2 rounded-lg bg-[#5f259f] text-white font-sans font-extrabold tracking-wide shadow transition-colors ${buttonHoverClass}`}
+        className={`platform-link-btn ml-auto px-4 py-2 rounded-lg bg-[#5f259f] text-white font-sans font-extrabold tracking-wide shadow transition-colors ${buttonHoverClass}`}
       >
         {buttonLabel}
       </span>
@@ -232,7 +232,7 @@ export default function MusicReleaseCard({
       <motion.div
         ref={cardRef}
         layout
-        className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 overflow-hidden"
+        className="music-card bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 overflow-hidden"
       >
         <motion.div
           layout
@@ -496,7 +496,7 @@ export default function MusicReleaseCard({
                       </button>
                     </div>
                     <div
-                      className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+                      className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
                       onClick={(e) => e.stopPropagation()}
                     >
                       {/* Cover Art at the top */}
@@ -512,8 +512,8 @@ export default function MusicReleaseCard({
                         />
                       </div>
                       {/* Music Title below cover art */}
-                      <h3
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
+                      <div
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                         style={{
                           fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
@@ -522,7 +522,7 @@ export default function MusicReleaseCard({
                         }}
                       >
                         {release.title}
-                      </h3>
+                      </div>
                       {/* Spotify Preview Embed */}
                       <div className="mb-5 mt-5 flex justify-center items-center w-full">
                         <div
@@ -897,7 +897,7 @@ export default function MusicReleaseCard({
                       </button>
                     </div>
                     <div
-                      className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+                      className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
                       onClick={(e) => e.stopPropagation()}
                     >
                       {/* Cover Art at the top */}
@@ -913,8 +913,8 @@ export default function MusicReleaseCard({
                         />
                       </div>
                       {/* Music Title below cover art */}
-                      <h3
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
+                      <div
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                         style={{
                           fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
@@ -923,7 +923,7 @@ export default function MusicReleaseCard({
                         }}
                       >
                         {release.title}
-                      </h3>
+                      </div>
                       {/* Spotify Preview Embed */}
                       <div className="mb-5 mt-5 flex justify-center items-center w-full">
                         <div
@@ -1126,7 +1126,7 @@ export default function MusicReleaseCard({
                       </button>
                     </div>
                     <div
-                      className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+                      className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
                       onClick={(e) => e.stopPropagation()}
                     >
                       {/* Cover Art at the top */}
@@ -1142,8 +1142,8 @@ export default function MusicReleaseCard({
                         />
                       </div>
                       {/* Music Title below cover art */}
-                      <h3
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
+                      <div
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                         style={{
                           fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
@@ -1152,7 +1152,7 @@ export default function MusicReleaseCard({
                         }}
                       >
                         {release.title}
-                      </h3>
+                      </div>
                       {/* Spotify Preview Embed */}
                       <div className="mb-5 mt-5 flex justify-center items-center w-full">
                         <div
@@ -1319,7 +1319,7 @@ export default function MusicReleaseCard({
                       </button>
                     </div>
                     <div
-                      className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+                      className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
                       onClick={(e) => e.stopPropagation()}
                     >
                       {/* Cover Art at the top */}
@@ -1335,8 +1335,8 @@ export default function MusicReleaseCard({
                         />
                       </div>
                       {/* Music Title below cover art */}
-                      <h3
-                        className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
+                      <div
+                        className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                         style={{
                           fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
@@ -1345,7 +1345,7 @@ export default function MusicReleaseCard({
                         }}
                       >
                         {release.title}
-                      </h3>
+                      </div>
                       {/* Spotify Preview Embed */}
                       <div className="mb-5 mt-5 flex justify-center items-center w-full">
                         <div
@@ -1504,7 +1504,7 @@ export default function MusicReleaseCard({
               </button>
             </div>
             <div
-              className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+              className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Cover Art at the top - match card size */}
@@ -1570,11 +1570,11 @@ export default function MusicReleaseCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   ref={subWavelengthBoxRef}
-                  className="relative flex items-center bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] rounded-xl shadow-md p-3 transition-all duration-200 overflow-hidden animated-gradient-box group text-center justify-center cursor-pointer w-full"
+                  className="platform-link-box relative flex items-center bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] rounded-xl shadow-md p-3 transition-colors duration-200 overflow-hidden animated-gradient-box group text-center justify-center cursor-pointer w-full"
                   style={{ letterSpacing: "0.05em" }}
                   onMouseMove={handleSubWavelengthMouseMove}
                 >
-                  <span className="w-full px-4 py-2 rounded-lg text-white font-sans font-extrabold tracking-wide shadow transition-colors text-lg">
+                  <span className="platform-link-btn w-full px-4 py-2 rounded-lg text-white font-sans font-extrabold tracking-wide shadow transition-colors text-lg">
                     BUY ON SUB WAVELENGTH
                   </span>
                   <div className="pointer-events-none absolute inset-0 z-10 animated-gradient-overlay" />
@@ -1669,7 +1669,7 @@ export default function MusicReleaseCard({
               </button>
             </div>
             <div
-              className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+              className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Cover Art at the top */}
@@ -1685,8 +1685,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <h3
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
+              <div
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -1695,7 +1695,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </h3>
+              </div>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div
@@ -1887,7 +1887,7 @@ export default function MusicReleaseCard({
               </button>
             </div>
             <div
-              className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+              className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Cover Art at the top */}
@@ -1903,8 +1903,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <h3
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
+              <div
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -1913,7 +1913,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </h3>
+              </div>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div
@@ -2104,7 +2104,7 @@ export default function MusicReleaseCard({
               </button>
             </div>
             <div
-              className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+              className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Cover Art at the top */}
@@ -2120,8 +2120,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <h3
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
+              <div
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -2130,7 +2130,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </h3>
+              </div>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div
@@ -2333,7 +2333,7 @@ export default function MusicReleaseCard({
               </button>
             </div>
             <div
-              className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+              className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Cover Art at the top */}
@@ -2349,8 +2349,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <h3
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
+              <div
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -2359,7 +2359,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </h3>
+              </div>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div
@@ -2526,7 +2526,7 @@ export default function MusicReleaseCard({
               </button>
             </div>
             <div
-              className="bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
+              className="platform-overlay-box bg-[#1a1333] rounded-2xl shadow-2xl p-0 w-full max-w-[320px] mx-auto relative flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Cover Art at the top */}
@@ -2542,8 +2542,8 @@ export default function MusicReleaseCard({
                 />
               </div>
               {/* Music Title below cover art */}
-              <h3
-                className="text-xl font-extrabold text-center text-white mt-4 mb-6 hidden md:block"
+              <div
+                className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
                   fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
@@ -2552,7 +2552,7 @@ export default function MusicReleaseCard({
                 }}
               >
                 {release.title}
-              </h3>
+              </div>
               {/* Spotify Preview Embed */}
               <div className="mb-5 mt-5 flex justify-center items-center w-full">
                 <div

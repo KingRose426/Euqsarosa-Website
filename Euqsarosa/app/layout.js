@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,8 +31,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  let theme = "light";
+  if (typeof window === "undefined") {
+    // SSR: read from cookies
+    const cookieStore = cookies();
+    theme = cookieStore.get("theme")?.value || "light";
+  }
   return (
-    <html lang="en" data-theme="dark" className="scroll-smooth">
+    <html lang="en" data-theme={theme} className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />

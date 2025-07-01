@@ -99,7 +99,7 @@
   opacity: 1;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=DM+Sans:wght@400;800&display=swap");
 
 :root {
   --bg: #000000;
@@ -287,7 +287,7 @@
   display: block;
   margin: 0;
   padding: 0;
-  background: #18181b;
+  background: #fff !important;
   border-radius: 16px;
   border: none;
 }
@@ -369,4 +369,122 @@ section[id] {
     align-items: center;
     min-height: 44px;
   }
+}
+
+[data-theme="dark"] {
+  --bg: #0a0a0a;
+}
+[data-theme="dark"] body {
+  background: #0a0a0a !important;
+  color: #f3f3f3 !important;
+}
+[data-theme="dark"] .gradient-text {
+  /* Do not override color for section titles */
+}
+[data-theme="dark"] .spotify-embed-container,
+[data-theme="dark"] .spotify-embed-frame {
+  background: #18181b !important;
+}
+[data-theme="dark"] .nav-underline::after,
+[data-theme="dark"] .nav-underline-active::after,
+[data-theme="dark"] .mobile-nav-underline span::after,
+[data-theme="dark"] .mobile-nav-underline-active span::after {
+  background: linear-gradient(90deg, #a084e8, #5f259f);
+}
+[data-theme="dark"] .nav-underline-active::after,
+[data-theme="dark"] .mobile-nav-underline-active span::after {
+  box-shadow: 0 0 8px rgba(160, 132, 232, 0.7);
+}
+[data-theme="dark"] header {
+  /* Do not override text color for header */
+}
+[data-theme="dark"] .border-gray-800 {
+  border-color: #222 !important;
+}
+[data-theme="dark"] .bg-black\/20,
+[data-theme="dark"] .bg-black\/30 {
+  background: rgba(10, 10, 10, 0.92) !important;
+}
+[data-theme="dark"] .text-white {
+  /* Remove forced override for .text-white to allow header, titles, and footer to use their original color */
+}
+[data-theme="dark"] .text-white\/80 {
+  color: #cccccc !important;
+}
+[data-theme="dark"] .bg-white\/5,
+[data-theme="dark"] .bg-white\/10 {
+  background: rgba(40, 40, 40, 0.7) !important;
+}
+[data-theme="dark"] .backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+[data-theme="dark"] .border-white\/10 {
+  border-color: #222 !important;
+}
+[data-theme="dark"] .border-white\/20 {
+  border-color: #444 !important;
+}
+[data-theme="dark"] .text-white\/70 {
+  color: #bbbbbb !important;
+}
+[data-theme="dark"] .text-white\/60 {
+  color: #888888 !important;
+}
+[data-theme="dark"] .about-section,
+[data-theme="dark"] .contact-section,
+[data-theme="dark"] footer {
+  background: #18181b !important;
+  border-color: #222 !important;
+  /* Do not override text color */
+}
+[data-theme="dark"] .spotify-embed-frame {
+  background: #fff !important;
+  border: 2px solid #fff !important;
+}
+
+/* Dark mode hover for music cards and connect social buttons */
+[data-theme="dark"] .music-card:hover,
+[data-theme="dark"] .connect-social:hover {
+  background: #23234a !important;
+  box-shadow: 0 4px 24px 0 rgba(160, 132, 232, 0.1);
+  border-color: #5f259f !important;
+}
+
+[data-theme="dark"] .bg-\[\#1a1333\] {
+  background: #000 !important;
+}
+
+[data-theme="dark"] .platform-overlay-box {
+  background: #000 !important;
+}
+
+[data-theme="dark"] .platform-link-box {
+  background: #000 !important;
+}
+[data-theme="dark"] .platform-link-btn {
+  background: #18181b !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .platform-link-btn:hover {
+  background: #fff2 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .email-btn {
+  background: linear-gradient(
+    90deg,
+    #2d0a4b 0%,
+    #3a0d5c 50%,
+    #2d0a4b 100%
+  ) !important;
+  color: #fff !important;
+  border: none !important;
+}
+[data-theme="dark"] .email-btn:hover {
+  background: linear-gradient(90deg, #5f259f 0%, #a084e8 100%) !important;
+}
+
+.platform-overlay-box .spotify-embed-frame {
+  border: 2px solid #fff !important;
 }

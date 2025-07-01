@@ -10,6 +10,7 @@ import {
   Headphones,
   Menu,
   X,
+  Moon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import MusicReleaseCard from "@/components/MusicReleaseCard";
@@ -95,6 +96,7 @@ export default function Home() {
   const listenNowRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const mobileMenuButtonRef = useRef(null);
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -194,6 +196,13 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    }
+  }, [theme]);
+
   const handleMobileNavLink = (target) => {
     setIsMobileMenuOpen(false);
 
@@ -278,6 +287,17 @@ export default function Home() {
     btn.style.setProperty("--y", `${y}px`);
   };
 
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      if (typeof window !== "undefined") {
+        document.cookie = `theme=${next}; path=/; max-age=31536000`;
+        localStorage.setItem("theme", next);
+      }
+      return next;
+    });
+  };
+
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -304,7 +324,7 @@ export default function Home() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8 items-center">
             <a
               href="#music"
               className={`nav-underline font-bold transition-colors ${
@@ -335,22 +355,58 @@ export default function Home() {
             >
               Contact
             </a>
+            {/* Light/Dark Mode Toggle */}
+            <button
+              className={`ml-10 p-2 rounded-full border border-white/20 transition-colors focus:outline-none ${
+                theme === "dark"
+                  ? "ring-2 ring-[#a084e8] bg-[#2d0a4b]"
+                  : "hover:bg-white/10"
+              }`}
+              onClick={toggleTheme}
+              aria-label="Toggle light/dark mode"
+              type="button"
+            >
+              <Moon
+                className={`w-5 h-5 ${
+                  theme === "dark" ? "text-white" : "text-white"
+                }`}
+              />
+            </button>
           </nav>
 
-          {/* Mobile Navigation Button */}
-          <button
-            className="lg:hidden p-3 text-white/80 hover:text-white transition-colors touch-manipulation select-none"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-            ref={mobileMenuButtonRef}
-            style={{ minWidth: "44px", minHeight: "44px" }}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+          {/* Mobile Navigation Button and Theme Toggle */}
+          <div className="flex items-center space-x-2 lg:hidden">
+            <button
+              className="p-3 text-white/80 hover:text-white transition-colors touch-manipulation select-none"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+              ref={mobileMenuButtonRef}
+              style={{ minWidth: "44px", minHeight: "44px" }}
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+            <button
+              className={`p-2 rounded-full border border-white/20 transition-colors focus:outline-none ${
+                theme === "dark"
+                  ? "ring-2 ring-[#a084e8] bg-[#2d0a4b]"
+                  : "hover:bg-white/10"
+              }`}
+              onClick={toggleTheme}
+              aria-label="Toggle light/dark mode"
+              type="button"
+              style={{ minWidth: "40px", minHeight: "40px" }}
+            >
+              <Moon
+                className={`w-5 h-5 ${
+                  theme === "dark" ? "text-white" : "text-white"
+                }`}
+              />
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation Dropdown */}
@@ -466,7 +522,7 @@ export default function Home() {
               <a
                 href="#music"
                 ref={listenNowRef}
-                className="relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-extrabold text-base sm:text-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-full sm:w-auto overflow-hidden group animated-gradient-box"
+                className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-extrabold text-base sm:text-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-full sm:w-auto overflow-hidden group animated-gradient-box"
                 style={{ textShadow: "0 1px 8px rgba(80,0,120,0.4)" }}
                 onMouseMove={handleListenNowMouseMove}
               >
@@ -511,6 +567,7 @@ export default function Home() {
                 isOpen={openMusicCard === release.title}
                 onToggle={() => handleMusicCardToggle(release.title)}
                 onAutoScroll={handleAutoScroll}
+                className="music-card"
               />
             ))}
           </div>
@@ -518,7 +575,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 px-6">
+      <section id="about" className="py-16 px-6 about-section">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -607,7 +664,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-6 bg-black/20">
+      <section id="contact" className="py-16 px-6 bg-black/20 contact-section">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -627,7 +684,7 @@ export default function Home() {
               href="https://open.spotify.com/artist/2qvorxtBtHDDhTGbMBUDdT?si=rq7hX1P7RAyVyicI-7Ff6g"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 group"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 group connect-social"
             >
               <Headphones className="w-8 h-8 mx-auto mb-3 text-green-500 group-hover:scale-110 transition-transform" />
               <span className="text-white font-medium">Spotify</span>
@@ -636,7 +693,7 @@ export default function Home() {
               href="https://www.instagram.com/euqsarosa/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 group"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 group connect-social"
             >
               <Instagram className="w-8 h-8 mx-auto mb-3 text-pink-500 group-hover:scale-110 transition-transform" />
               <span className="text-white font-medium">Instagram</span>
@@ -645,7 +702,7 @@ export default function Home() {
               href="https://soundcloud.com/euqsarosa"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 group"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 group connect-social"
             >
               <Music className="w-8 h-8 mx-auto mb-3 text-orange-500 group-hover:scale-110 transition-transform" />
               <span className="text-white font-medium">SoundCloud</span>
@@ -654,7 +711,7 @@ export default function Home() {
               href="https://www.youtube.com/@euqsarosa"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 group"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 group connect-social"
             >
               <Youtube className="w-8 h-8 mx-auto mb-3 text-red-500 group-hover:scale-110 transition-transform" />
               <span className="text-white font-medium">YouTube</span>
@@ -676,7 +733,7 @@ export default function Home() {
             <div className="flex justify-center space-x-4">
               <a
                 href="mailto:euqsarosaprod@gmail.com"
-                className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300"
+                className="email-btn bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300"
               >
                 Email
               </a>
