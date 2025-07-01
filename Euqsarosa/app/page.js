@@ -151,14 +151,15 @@ export default function Home() {
   // Track active section for navigation highlighting
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.2,
-      rootMargin: "-100px 0px -100px 0px",
+      threshold: 0.3,
+      rootMargin: "-80px 0px -80px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
+          console.log("Section intersecting:", sectionId, "entry:", entry);
           setActiveSection(sectionId || "");
         }
       });
@@ -166,12 +167,22 @@ export default function Home() {
 
     // Observe all sections
     const sections = document.querySelectorAll("section[id]");
+    console.log(
+      "Found sections:",
+      sections.length,
+      Array.from(sections).map((s) => s.id)
+    );
     sections.forEach((section) => observer.observe(section));
 
     return () => {
       sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
+
+  // Debug activeSection changes
+  useEffect(() => {
+    console.log("Active section changed to:", activeSection);
+  }, [activeSection]);
 
   // Clear active section when scrolling back to hero section
   useEffect(() => {
@@ -181,9 +192,33 @@ export default function Home() {
       }
     };
 
+    // Add scroll-based section detection as fallback
+    const handleScrollDetection = () => {
+      const sections = document.querySelectorAll("section[id]");
+      const scrollPosition = window.scrollY + 150; // Offset for header
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionBottom = sectionTop + sectionHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          const sectionId = section.id;
+          if (sectionId && sectionId !== activeSection) {
+            console.log("Scroll-based section detection:", sectionId);
+            setActiveSection(sectionId);
+          }
+        }
+      });
+    };
+
     window.addEventListener("scroll", handleScrollToTop);
-    return () => window.removeEventListener("scroll", handleScrollToTop);
-  }, []);
+    window.addEventListener("scroll", handleScrollDetection);
+    return () => {
+      window.removeEventListener("scroll", handleScrollToTop);
+      window.removeEventListener("scroll", handleScrollDetection);
+    };
+  }, [activeSection]);
 
   // Auto-close mobile menu on resize to desktop
   useEffect(() => {
