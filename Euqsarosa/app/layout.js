@@ -1,8 +1,9 @@
-import { Inter } from "next/font/google";
+import { Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { cookies } from "next/headers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dmsans" });
 
 export const metadata = {
   title: "Euqsarosa - D&B Producer",
@@ -75,7 +76,9 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${inter.className} bg-gray-950 text-white`}>
+      <body
+        className={`${inter.variable} ${dmSans.variable} bg-gray-950 text-white`}
+      >
         {children}
       </body>
     </html>

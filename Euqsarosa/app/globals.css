@@ -108,6 +108,16 @@
   --clr-3: #ffc640;
   --clr-4: #e54cff;
   --blur: 1rem;
+  --font-inter: "Inter", sans-serif;
+  --font-dmsans: "DM Sans", sans-serif;
+}
+
+body {
+  font-family: var(--font-inter);
+}
+
+.font-dmsans {
+  font-family: var(--font-dmsans);
 }
 
 .aurora {

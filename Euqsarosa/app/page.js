@@ -313,12 +313,7 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="#" className="flex items-center space-x-2 cursor-pointer">
-            <span
-              className="text-2xl font-black gradient-text tracking-widest uppercase"
-              style={{
-                fontFamily: "Inter, DM Sans, Arial, sans-serif",
-              }}
-            >
+            <span className="text-2xl font-black gradient-text tracking-widest uppercase">
               EUQSAROSA
             </span>
           </a>
@@ -499,10 +494,7 @@ export default function Home() {
             className="flex flex-col items-center"
           >
             <div className="w-full flex justify-center items-center mb-4">
-              <h1
-                className="title lights text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-center leading-tight"
-                style={{ fontFamily: "Inter, DM Sans, Arial, sans-serif" }}
-              >
+              <h1 className="title lights text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-center leading-tight">
                 EUQSAROSA
               </h1>
             </div>
@@ -513,7 +505,6 @@ export default function Home() {
               className="text-lg sm:text-xl md:text-2xl font-medium text-white/90 mb-8 tracking-widest uppercase text-center"
               style={{
                 textShadow: "0 0 16px #a084e8, 0 2px 4px rgba(0,0,0,0.5)",
-                fontFamily: "Inter, DM Sans, Arial, sans-serif",
               }}
             >
               DRUM & BASS PRODUCER
@@ -615,13 +606,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <p
-                  className="text-white/80 text-left text-justify text-sm leading-relaxed"
-                  style={{
-                    fontFamily:
-                      "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                  }}
-                >
+                <p className="text-white/80 text-left text-justify text-sm leading-relaxed">
                   Shahrose Atique is a Drum & Bass producer based in Dubai, UAE.
                   <br />
                   <br />
@@ -638,13 +623,7 @@ export default function Home() {
               </div>
 
               {/* Desktop: Full text */}
-              <p
-                className="hidden md:block text-white/80 text-left text-justify text-base sm:text-base leading-relaxed"
-                style={{
-                  fontFamily:
-                    "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                }}
-              >
+              <p className="hidden md:block text-white/80 text-left text-justify text-base sm:text-base leading-relaxed">
                 Shahrose Atique is a Drum & Bass producer based in Dubai, UAE.
                 <br />
                 <br />
@@ -720,13 +699,7 @@ export default function Home() {
 
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">Get in Touch</h3>
-            <p
-              className="text-white/80 mb-6 text-sm md:text-base leading-relaxed"
-              style={{
-                fontFamily:
-                  "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-              }}
-            >
+            <p className="text-white/80 mb-6 text-sm md:text-base leading-relaxed">
               For bookings, collaborations, or just to say hello, reach out
               through any of the social channels above or send a direct message.
             </p>
@@ -746,22 +719,11 @@ export default function Home() {
       <footer className="py-8 px-6 border-t border-gray-800">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <span
-              className="text-xl font-black gradient-text tracking-widest uppercase"
-              style={{
-                fontFamily: "Inter, DM Sans, Arial, sans-serif",
-              }}
-            >
+            <span className="text-xl font-black gradient-text tracking-widest uppercase">
               EUQSAROSA
             </span>
           </div>
-          <p
-            className="text-white/60 text-sm font-medium tracking-wide"
-            style={{
-              fontFamily:
-                "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-            }}
-          >
+          <p className="text-white/60 text-sm font-medium tracking-wide">
             ©2025 Euqsarosa
           </p>
         </div>

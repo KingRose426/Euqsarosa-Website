@@ -271,7 +271,6 @@ export default function MusicReleaseCard({
             <h3
               className="text-2xl font-extrabold text-center text-white"
               style={{
-                fontFamily: "Inter, DM Sans, Arial, sans-serif",
                 letterSpacing: "0.01em",
                 margin: 0,
                 padding: 0,
@@ -293,7 +292,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm text-white"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.02em",
                   marginBottom: "2px",
                   textAlign: "left",
@@ -305,7 +303,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm italic text-white/80"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.04em",
                   fontWeight: 400,
                   opacity: 0.85,
@@ -322,7 +319,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm text-white"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.02em",
                   marginBottom: "2px",
                   textAlign: "left",
@@ -334,7 +330,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm italic text-white/80"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.04em",
                   fontWeight: 400,
                   opacity: 0.85,
@@ -351,7 +346,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm text-white"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.02em",
                   marginBottom: "2px",
                   textAlign: "left",
@@ -363,7 +357,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm italic text-white/80"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.04em",
                   fontWeight: 400,
                   opacity: 0.85,
@@ -380,7 +373,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm text-white"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.02em",
                   marginBottom: "2px",
                   textAlign: "left",
@@ -392,7 +384,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm italic text-white/80"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.04em",
                   fontWeight: 400,
                   opacity: 0.85,
@@ -409,7 +400,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm text-white"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.02em",
                   marginBottom: "2px",
                   textAlign: "left",
@@ -421,7 +411,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm italic text-white/80"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.04em",
                   fontWeight: 400,
                   opacity: 0.85,
@@ -438,7 +427,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm text-white"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.02em",
                   marginBottom: "2px",
                   textAlign: "left",
@@ -450,7 +438,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-sm italic text-white/80"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.04em",
                   fontWeight: 400,
                   opacity: 0.85,
@@ -515,7 +502,6 @@ export default function MusicReleaseCard({
                       <div
                         className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                         style={{
-                          fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
                           margin: 4,
                           padding: 0,
@@ -916,7 +902,6 @@ export default function MusicReleaseCard({
                       <div
                         className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                         style={{
-                          fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
                           margin: 4,
                           padding: 0,
@@ -1145,7 +1130,6 @@ export default function MusicReleaseCard({
                       <div
                         className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                         style={{
-                          fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
                           margin: 4,
                           padding: 0,
@@ -1338,7 +1322,6 @@ export default function MusicReleaseCard({
                       <div
                         className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                         style={{
-                          fontFamily: "Inter, DM Sans, Arial, sans-serif",
                           letterSpacing: "0.01em",
                           margin: 4,
                           padding: 0,
@@ -1523,7 +1506,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
                   margin: 4,
                   padding: 0,
@@ -1688,7 +1670,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
                   margin: 4,
                   padding: 0,
@@ -1906,7 +1887,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
                   margin: 4,
                   padding: 0,
@@ -2123,7 +2103,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
                   margin: 4,
                   padding: 0,
@@ -2352,7 +2331,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
                   margin: 4,
                   padding: 0,
@@ -2545,7 +2523,6 @@ export default function MusicReleaseCard({
               <div
                 className="text-xl font-extrabold text-center text-white mt-4 mb-6"
                 style={{
-                  fontFamily: "Inter, DM Sans, Arial, sans-serif",
                   letterSpacing: "0.01em",
                   margin: 4,
                   padding: 0,
