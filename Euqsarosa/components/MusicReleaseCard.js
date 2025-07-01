@@ -97,6 +97,7 @@ export default function MusicReleaseCard({
   const [showGrowOverlay, setShowGrowOverlay] = useState(false);
   const [showKeepingOnOverlay, setShowKeepingOnOverlay] = useState(false);
   const [showIncongruencyOverlay, setShowIncongruencyOverlay] = useState(false);
+  const buyStreamBtnRef = useRef(null);
 
   // Scroll to center when dropdown is opened
   useEffect(() => {
@@ -227,6 +228,17 @@ export default function MusicReleaseCard({
     release.title,
   ]);
 
+  // Aurora Buy/Stream button hover effect handler
+  const handleBuyStreamMouseMove = (e) => {
+    const btn = buyStreamBtnRef.current;
+    if (!btn) return;
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    btn.style.setProperty("--x", `${x}px`);
+    btn.style.setProperty("--y", `${y}px`);
+  };
+
   return (
     <>
       <motion.div
@@ -288,165 +300,555 @@ export default function MusicReleaseCard({
           </div>
           {/* Additional info for Never Let Go / Used To */}
           {release.title === "Never Let Go / Used To" && (
-            <div className="mb-6">
-              <div
-                className="text-sm text-white"
-                style={{
-                  letterSpacing: "0.02em",
-                  marginBottom: "2px",
-                  textAlign: "left",
-                  fontWeight: 400,
-                }}
-              >
-                June 13, 2025
+            <>
+              <div className="mb-6 flex flex-row items-center justify-between gap-3">
+                <div>
+                  <div
+                    className="text-sm text-white"
+                    style={{
+                      letterSpacing: "0.02em",
+                      marginBottom: "2px",
+                      textAlign: "left",
+                      fontWeight: 400,
+                    }}
+                  >
+                    June 13, 2025
+                  </div>
+                  <div
+                    className="text-sm italic text-white/80"
+                    style={{
+                      letterSpacing: "0.04em",
+                      fontWeight: 400,
+                      opacity: 0.85,
+                      textAlign: "left",
+                    }}
+                  >
+                    Sub Wavelength Rec.
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  ref={buyStreamBtnRef}
+                  onMouseMove={handleBuyStreamMouseMove}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowOverlay(true);
+                  }}
+                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  style={{
+                    textShadow: "0 1px 8px rgba(80,0,120,0.4)",
+                    minWidth: "110px",
+                    maxWidth: "180px",
+                  }}
+                >
+                  <svg
+                    className="w-5 h-5 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                  <span className="whitespace-nowrap">Buy/Stream</span>
+                  <div className="pointer-events-none absolute inset-0 z-10 animated-gradient-overlay" />
+                </button>
               </div>
-              <div
-                className="text-sm italic text-white/80"
-                style={{
-                  letterSpacing: "0.04em",
-                  fontWeight: 400,
-                  opacity: 0.85,
-                  textAlign: "left",
-                }}
-              >
-                Sub Wavelength Recordings
+              {/* Spotify Preview Embed for Never Let Go / Used To (main card) */}
+              <div className="mb-5 mt-2 flex justify-center items-center w-full">
+                <div
+                  className="spotify-embed-container group w-full max-w-[320px]"
+                  style={{ borderRadius: "16px" }}
+                >
+                  <iframe
+                    className="spotify-embed-frame"
+                    style={{
+                      borderRadius: "16px",
+                      border: "2px solid #a084e8",
+                      width: "100%",
+                      height: "96px",
+                      background: "#18181b",
+                      margin: 0,
+                      padding: 0,
+                      display: "block",
+                    }}
+                    src="https://open.spotify.com/embed/album/1bAqTRWU3QALt1F8doULon?utm_source=generator"
+                    width="100%"
+                    height="96"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    allowFullScreen
+                    title="Spotify Preview"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            </>
           )}
           {/* Additional info for Aurora */}
           {release.title === "Aurora" && (
-            <div className="mb-6">
-              <div
-                className="text-sm text-white"
-                style={{
-                  letterSpacing: "0.02em",
-                  marginBottom: "2px",
-                  textAlign: "left",
-                  fontWeight: 400,
-                }}
-              >
-                April 10, 2025
+            <>
+              <div className="mb-6 flex flex-row items-center justify-between gap-3">
+                <div>
+                  <div
+                    className="text-sm text-white"
+                    style={{
+                      letterSpacing: "0.02em",
+                      marginBottom: "2px",
+                      textAlign: "left",
+                      fontWeight: 400,
+                    }}
+                  >
+                    April 10, 2025
+                  </div>
+                  <div
+                    className="text-sm italic text-white/80"
+                    style={{
+                      letterSpacing: "0.04em",
+                      fontWeight: 400,
+                      opacity: 0.85,
+                      textAlign: "left",
+                    }}
+                  >
+                    Flight Pattern Records
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  ref={buyStreamBtnRef}
+                  onMouseMove={handleBuyStreamMouseMove}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowAuroraOverlay(true);
+                  }}
+                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  style={{
+                    textShadow: "0 1px 8px rgba(80,0,120,0.4)",
+                    minWidth: "110px",
+                    maxWidth: "180px",
+                  }}
+                >
+                  <svg
+                    className="w-5 h-5 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                  <span className="whitespace-nowrap">Buy/Stream</span>
+                  <div className="pointer-events-none absolute inset-0 z-10 animated-gradient-overlay" />
+                </button>
               </div>
-              <div
-                className="text-sm italic text-white/80"
-                style={{
-                  letterSpacing: "0.04em",
-                  fontWeight: 400,
-                  opacity: 0.85,
-                  textAlign: "left",
-                }}
-              >
-                Flight Pattern Records
+              {/* Spotify Preview Embed for Aurora (restored) */}
+              <div className="mb-5 mt-2 flex justify-center items-center w-full">
+                <div
+                  className="spotify-embed-container group w-full max-w-[320px]"
+                  style={{ borderRadius: "16px" }}
+                >
+                  <iframe
+                    className="spotify-embed-frame"
+                    style={{
+                      borderRadius: "16px",
+                      border: "2px solid #a084e8",
+                      width: "100%",
+                      height: "96px",
+                      background: "#18181b",
+                      margin: 0,
+                      padding: 0,
+                      display: "block",
+                    }}
+                    src="https://open.spotify.com/embed/track/1tdu2HljUSbkDYTkTlZVC9?utm_source=generator"
+                    width="100%"
+                    height="96"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    allowFullScreen
+                    title="Spotify Preview"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            </>
           )}
           {/* Additional info for In Your Eyes */}
           {release.title === "In Your Eyes" && (
-            <div className="mb-6">
-              <div
-                className="text-sm text-white"
-                style={{
-                  letterSpacing: "0.02em",
-                  marginBottom: "2px",
-                  textAlign: "left",
-                  fontWeight: 400,
-                }}
-              >
-                December 16, 2023
+            <>
+              <div className="mb-6 flex flex-row items-center justify-between gap-3">
+                <div>
+                  <div
+                    className="text-sm text-white"
+                    style={{
+                      letterSpacing: "0.02em",
+                      marginBottom: "2px",
+                      textAlign: "left",
+                      fontWeight: 400,
+                    }}
+                  >
+                    December 16, 2023
+                  </div>
+                  <div
+                    className="text-sm italic text-white/80"
+                    style={{
+                      letterSpacing: "0.04em",
+                      fontWeight: 400,
+                      opacity: 0.85,
+                      textAlign: "left",
+                    }}
+                  >
+                    Dialect Audio
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  ref={buyStreamBtnRef}
+                  onMouseMove={handleBuyStreamMouseMove}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowEyesOverlay(true);
+                  }}
+                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  style={{
+                    textShadow: "0 1px 8px rgba(80,0,120,0.4)",
+                    minWidth: "110px",
+                    maxWidth: "180px",
+                  }}
+                >
+                  <svg
+                    className="w-5 h-5 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                  <span className="whitespace-nowrap">Buy/Stream</span>
+                  <div className="pointer-events-none absolute inset-0 z-10 animated-gradient-overlay" />
+                </button>
               </div>
-              <div
-                className="text-sm italic text-white/80"
-                style={{
-                  letterSpacing: "0.04em",
-                  fontWeight: 400,
-                  opacity: 0.85,
-                  textAlign: "left",
-                }}
-              >
-                Dialect Audio
+              {/* Spotify Preview Embed for In Your Eyes (main card) */}
+              <div className="mb-5 mt-2 flex justify-center items-center w-full">
+                <div
+                  className="spotify-embed-container group w-full max-w-[320px]"
+                  style={{ borderRadius: "16px" }}
+                >
+                  <iframe
+                    className="spotify-embed-frame"
+                    style={{
+                      borderRadius: "16px",
+                      border: "2px solid #a084e8",
+                      width: "100%",
+                      height: "96px",
+                      background: "#18181b",
+                      margin: 0,
+                      padding: 0,
+                      display: "block",
+                    }}
+                    src="https://open.spotify.com/embed/track/0SCoNAciqsTEKWpHiSfYVk?utm_source=generator"
+                    width="100%"
+                    height="96"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    allowFullScreen
+                    title="Spotify Preview"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            </>
           )}
           {/* Additional info for Grow */}
           {release.title === "Grow" && (
-            <div className="mb-6">
-              <div
-                className="text-sm text-white"
-                style={{
-                  letterSpacing: "0.02em",
-                  marginBottom: "2px",
-                  textAlign: "left",
-                  fontWeight: 400,
-                }}
-              >
-                October 11, 2024
+            <>
+              <div className="mb-6 flex flex-row items-center justify-between gap-3">
+                <div>
+                  <div
+                    className="text-sm text-white"
+                    style={{
+                      letterSpacing: "0.02em",
+                      marginBottom: "2px",
+                      textAlign: "left",
+                      fontWeight: 400,
+                    }}
+                  >
+                    October 11, 2024
+                  </div>
+                  <div
+                    className="text-sm italic text-white/80"
+                    style={{
+                      letterSpacing: "0.04em",
+                      fontWeight: 400,
+                      opacity: 0.85,
+                      textAlign: "left",
+                    }}
+                  >
+                    DNBB / Liquid Flow
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  ref={buyStreamBtnRef}
+                  onMouseMove={handleBuyStreamMouseMove}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowGrowOverlay(true);
+                  }}
+                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  style={{
+                    textShadow: "0 1px 8px rgba(80,0,120,0.4)",
+                    minWidth: "110px",
+                    maxWidth: "180px",
+                  }}
+                >
+                  <svg
+                    className="w-5 h-5 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                  <span className="whitespace-nowrap">Buy/Stream</span>
+                  <div className="pointer-events-none absolute inset-0 z-10 animated-gradient-overlay" />
+                </button>
               </div>
-              <div
-                className="text-sm italic text-white/80"
-                style={{
-                  letterSpacing: "0.04em",
-                  fontWeight: 400,
-                  opacity: 0.85,
-                  textAlign: "left",
-                }}
-              >
-                DNBB Group / Liquid Flow
+              {/* Spotify Preview Embed for Grow (main card) */}
+              <div className="mb-5 mt-2 flex justify-center items-center w-full">
+                <div
+                  className="spotify-embed-container group w-full max-w-[320px]"
+                  style={{ borderRadius: "16px" }}
+                >
+                  <iframe
+                    className="spotify-embed-frame"
+                    style={{
+                      borderRadius: "16px",
+                      border: "2px solid #a084e8",
+                      width: "100%",
+                      height: "96px",
+                      background: "#18181b",
+                      margin: 0,
+                      padding: 0,
+                      display: "block",
+                    }}
+                    src="https://open.spotify.com/embed/track/12iUl8zcG0fZlbxcIOMM0u?utm_source=generator"
+                    width="100%"
+                    height="96"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    allowFullScreen
+                    title="Spotify Preview"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            </>
           )}
           {/* Additional info for Keeping On */}
           {release.title === "Keeping On" && (
-            <div className="mb-6">
-              <div
-                className="text-sm text-white"
-                style={{
-                  letterSpacing: "0.02em",
-                  marginBottom: "2px",
-                  textAlign: "left",
-                  fontWeight: 400,
-                }}
-              >
-                October 18, 2024
+            <>
+              <div className="mb-6 flex flex-row items-center justify-between gap-3">
+                <div>
+                  <div
+                    className="text-sm text-white"
+                    style={{
+                      letterSpacing: "0.02em",
+                      marginBottom: "2px",
+                      textAlign: "left",
+                      fontWeight: 400,
+                    }}
+                  >
+                    October 18, 2024
+                  </div>
+                  <div
+                    className="text-sm italic text-white/80"
+                    style={{
+                      letterSpacing: "0.04em",
+                      fontWeight: 400,
+                      opacity: 0.85,
+                      textAlign: "left",
+                    }}
+                  >
+                    Beatalistics Rec.
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  ref={buyStreamBtnRef}
+                  onMouseMove={handleBuyStreamMouseMove}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowKeepingOnOverlay(true);
+                  }}
+                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  style={{
+                    textShadow: "0 1px 8px rgba(80,0,120,0.4)",
+                    minWidth: "110px",
+                    maxWidth: "180px",
+                  }}
+                >
+                  <svg
+                    className="w-5 h-5 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                  <span className="whitespace-nowrap">Buy/Stream</span>
+                  <div className="pointer-events-none absolute inset-0 z-10 animated-gradient-overlay" />
+                </button>
               </div>
-              <div
-                className="text-sm italic text-white/80"
-                style={{
-                  letterSpacing: "0.04em",
-                  fontWeight: 400,
-                  opacity: 0.85,
-                  textAlign: "left",
-                }}
-              >
-                Beatalistics Rec.
+              {/* Spotify Preview Embed for Keeping On (main card) */}
+              <div className="mb-5 mt-2 flex justify-center items-center w-full">
+                <div
+                  className="spotify-embed-container group w-full max-w-[320px]"
+                  style={{ borderRadius: "16px" }}
+                >
+                  <iframe
+                    className="spotify-embed-frame"
+                    style={{
+                      borderRadius: "16px",
+                      border: "2px solid #a084e8",
+                      width: "100%",
+                      height: "96px",
+                      background: "#18181b",
+                      margin: 0,
+                      padding: 0,
+                      display: "block",
+                    }}
+                    src="https://open.spotify.com/embed/track/3RxWpfV6ilqc7GQSTY2IDJ?utm_source=generator"
+                    width="100%"
+                    height="96"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    allowFullScreen
+                    title="Spotify Preview"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            </>
           )}
           {/* Additional info for Incongruency */}
           {release.title === "Incongruency" && (
-            <div className="mb-6">
-              <div
-                className="text-sm text-white"
-                style={{
-                  letterSpacing: "0.02em",
-                  marginBottom: "2px",
-                  textAlign: "left",
-                  fontWeight: 400,
-                }}
-              >
-                October 15, 2024
+            <>
+              <div className="mb-6 flex flex-row items-center justify-between gap-3">
+                <div>
+                  <div
+                    className="text-sm text-white"
+                    style={{
+                      letterSpacing: "0.02em",
+                      marginBottom: "2px",
+                      textAlign: "left",
+                      fontWeight: 400,
+                    }}
+                  >
+                    October 15, 2024
+                  </div>
+                  <div
+                    className="text-sm italic text-white/80"
+                    style={{
+                      letterSpacing: "0.04em",
+                      fontWeight: 400,
+                      opacity: 0.85,
+                      textAlign: "left",
+                    }}
+                  >
+                    Lizplay Records
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  ref={buyStreamBtnRef}
+                  onMouseMove={handleBuyStreamMouseMove}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowIncongruencyOverlay(true);
+                  }}
+                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  style={{
+                    textShadow: "0 1px 8px rgba(80,0,120,0.4)",
+                    minWidth: "110px",
+                    maxWidth: "180px",
+                  }}
+                >
+                  <svg
+                    className="w-5 h-5 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                  <span className="whitespace-nowrap">Buy/Stream</span>
+                  <div className="pointer-events-none absolute inset-0 z-10 animated-gradient-overlay" />
+                </button>
               </div>
-              <div
-                className="text-sm italic text-white/80"
-                style={{
-                  letterSpacing: "0.04em",
-                  fontWeight: 400,
-                  opacity: 0.85,
-                  textAlign: "left",
-                }}
-              >
-                Lizplay Records
+              {/* Spotify Preview Embed for Incongruency (main card) */}
+              <div className="mb-5 mt-2 flex justify-center items-center w-full">
+                <div
+                  className="spotify-embed-container group w-full max-w-[320px]"
+                  style={{ borderRadius: "16px" }}
+                >
+                  <iframe
+                    className="spotify-embed-frame"
+                    style={{
+                      borderRadius: "16px",
+                      border: "2px solid #a084e8",
+                      width: "100%",
+                      height: "96px",
+                      background: "#18181b",
+                      margin: 0,
+                      padding: 0,
+                      display: "block",
+                    }}
+                    src="https://open.spotify.com/embed/track/4xnVoqewkPXTcKYMKGPJNI?utm_source=generator"
+                    width="100%"
+                    height="96"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    allowFullScreen
+                    title="Spotify Preview"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </motion.div>
 
@@ -509,35 +911,7 @@ export default function MusicReleaseCard({
                       >
                         {release.title}
                       </div>
-                      {/* Spotify Preview Embed */}
-                      <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                        <div
-                          className="spotify-embed-container group w-full max-w-[320px]"
-                          style={{ borderRadius: "16px" }}
-                        >
-                          <iframe
-                            className="spotify-embed-frame"
-                            style={{
-                              borderRadius: "16px",
-                              border: "2px solid #a084e8",
-                              width: "100%",
-                              height: "96px",
-                              background: "#18181b",
-                              margin: 0,
-                              padding: 0,
-                              display: "block",
-                            }}
-                            src="https://open.spotify.com/embed/track/1tdu2HljUSbkDYTkTlZVC9?utm_source=generator"
-                            width="100%"
-                            height="96"
-                            frameBorder="0"
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                            allowFullScreen
-                            title="Spotify Preview"
-                          ></iframe>
-                        </div>
-                      </div>
+                      {/* REMOVE Spotify Preview Embed from overlay for Aurora */}
                       <div className="font-semibold text-white mb-2 text-center">
                         Choose music service
                       </div>
@@ -1513,35 +1887,7 @@ export default function MusicReleaseCard({
               >
                 {release.title}
               </div>
-              {/* Spotify Preview Embed - match Aurora spacing */}
-              <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                <div
-                  className="spotify-embed-container group w-full max-w-[320px]"
-                  style={{ borderRadius: "16px" }}
-                >
-                  <iframe
-                    className="spotify-embed-frame"
-                    style={{
-                      borderRadius: "16px",
-                      border: "2px solid #a084e8",
-                      width: "100%",
-                      height: "96px",
-                      background: "#18181b",
-                      margin: 0,
-                      padding: 0,
-                      display: "block",
-                    }}
-                    src="https://open.spotify.com/embed/album/1bAqTRWU3QALt1F8doULon?utm_source=generator"
-                    width="100%"
-                    height="96"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                    title="Spotify Preview"
-                  ></iframe>
-                </div>
-              </div>
+              {/* REMOVE Spotify Preview Embed from overlay for Never Let Go / Used To */}
               <div className="font-semibold text-white mb-2 text-center">
                 Choose music service
               </div>
@@ -1677,35 +2023,7 @@ export default function MusicReleaseCard({
               >
                 {release.title}
               </div>
-              {/* Spotify Preview Embed */}
-              <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                <div
-                  className="spotify-embed-container group w-full max-w-[320px]"
-                  style={{ borderRadius: "16px" }}
-                >
-                  <iframe
-                    className="spotify-embed-frame"
-                    style={{
-                      borderRadius: "16px",
-                      border: "2px solid #a084e8",
-                      width: "100%",
-                      height: "96px",
-                      background: "#18181b",
-                      margin: 0,
-                      padding: 0,
-                      display: "block",
-                    }}
-                    src="https://open.spotify.com/embed/track/1tdu2HljUSbkDYTkTlZVC9?utm_source=generator"
-                    width="100%"
-                    height="96"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                    title="Spotify Preview"
-                  ></iframe>
-                </div>
-              </div>
+              {/* REMOVE Spotify Preview Embed from overlay for Aurora */}
               <div className="font-semibold text-white mb-2 text-center">
                 Choose music service
               </div>
@@ -1894,35 +2212,7 @@ export default function MusicReleaseCard({
               >
                 {release.title}
               </div>
-              {/* Spotify Preview Embed */}
-              <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                <div
-                  className="spotify-embed-container group w-full max-w-[320px]"
-                  style={{ borderRadius: "16px" }}
-                >
-                  <iframe
-                    className="spotify-embed-frame"
-                    style={{
-                      borderRadius: "16px",
-                      border: "2px solid #a084e8",
-                      width: "100%",
-                      height: "96px",
-                      background: "#18181b",
-                      margin: 0,
-                      padding: 0,
-                      display: "block",
-                    }}
-                    src="https://open.spotify.com/embed/track/0SCoNAciqsTEKWpHiSfYVk?utm_source=generator"
-                    width="100%"
-                    height="96"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                    title="Spotify Preview"
-                  ></iframe>
-                </div>
-              </div>
+              {/* REMOVE Spotify Preview Embed from overlay for In Your Eyes */}
               <div className="font-semibold text-white mb-2 text-center">
                 Choose music service
               </div>
@@ -2110,35 +2400,7 @@ export default function MusicReleaseCard({
               >
                 {release.title}
               </div>
-              {/* Spotify Preview Embed */}
-              <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                <div
-                  className="spotify-embed-container group w-full max-w-[320px]"
-                  style={{ borderRadius: "16px" }}
-                >
-                  <iframe
-                    className="spotify-embed-frame"
-                    style={{
-                      borderRadius: "16px",
-                      border: "2px solid #a084e8",
-                      width: "100%",
-                      height: "96px",
-                      background: "#18181b",
-                      margin: 0,
-                      padding: 0,
-                      display: "block",
-                    }}
-                    src="https://open.spotify.com/embed/track/12iUl8zcG0fZlbxcIOMM0u?utm_source=generator"
-                    width="100%"
-                    height="96"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                    title="Spotify Preview"
-                  ></iframe>
-                </div>
-              </div>
+              {/* REMOVE Spotify Preview Embed from overlay for Grow */}
               <div className="font-semibold text-white mb-2 text-center">
                 Choose music service
               </div>
@@ -2338,35 +2600,7 @@ export default function MusicReleaseCard({
               >
                 {release.title}
               </div>
-              {/* Spotify Preview Embed */}
-              <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                <div
-                  className="spotify-embed-container group w-full max-w-[320px]"
-                  style={{ borderRadius: "16px" }}
-                >
-                  <iframe
-                    className="spotify-embed-frame"
-                    style={{
-                      borderRadius: "16px",
-                      border: "2px solid #a084e8",
-                      width: "100%",
-                      height: "96px",
-                      background: "#18181b",
-                      margin: 0,
-                      padding: 0,
-                      display: "block",
-                    }}
-                    src="https://open.spotify.com/embed/track/3RxWpfV6ilqc7GQSTY2IDJ?utm_source=generator"
-                    width="100%"
-                    height="96"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                    title="Spotify Preview"
-                  ></iframe>
-                </div>
-              </div>
+              {/* REMOVE Spotify Preview Embed from overlay for Keeping On */}
               <div className="font-semibold text-white mb-2 text-center">
                 Choose music service
               </div>
@@ -2530,35 +2764,7 @@ export default function MusicReleaseCard({
               >
                 {release.title}
               </div>
-              {/* Spotify Preview Embed */}
-              <div className="mb-5 mt-5 flex justify-center items-center w-full">
-                <div
-                  className="spotify-embed-container group w-full max-w-[320px]"
-                  style={{ borderRadius: "16px" }}
-                >
-                  <iframe
-                    className="spotify-embed-frame"
-                    style={{
-                      borderRadius: "16px",
-                      border: "2px solid #a084e8",
-                      width: "100%",
-                      height: "96px",
-                      background: "#18181b",
-                      margin: 0,
-                      padding: 0,
-                      display: "block",
-                    }}
-                    src="https://open.spotify.com/embed/track/4xnVoqewkPXTcKYMKGPJNI?utm_source=generator"
-                    width="100%"
-                    height="96"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                    title="Spotify Preview"
-                  ></iframe>
-                </div>
-              </div>
+              {/* REMOVE Spotify Preview Embed from overlay for Incongruency */}
               <div className="font-semibold text-white mb-2 text-center">
                 Choose music service
               </div>

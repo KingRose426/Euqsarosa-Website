@@ -472,12 +472,17 @@ section[id] {
   background: #000 !important;
 }
 [data-theme="dark"] .platform-link-btn {
-  background: #18181b !important;
+  background: linear-gradient(
+    90deg,
+    #2d0a4b 0%,
+    #3a0d5c 50%,
+    #2d0a4b 100%
+  ) !important;
   color: #fff !important;
 }
 
 [data-theme="dark"] .platform-link-btn:hover {
-  background: #fff2 !important;
+  background: linear-gradient(90deg, #5f259f 0%, #a084e8 100%) !important;
   color: #fff !important;
 }
 

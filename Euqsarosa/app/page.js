@@ -607,16 +607,16 @@ export default function Home() {
                   </div>
                 </div>
                 <p
-                  className="text-white/80 text-left text-justify text-sm leading-relaxed"
+                  className="text-white/80 text-left text-sm leading-relaxed"
                   style={{ hyphens: "auto", textWrap: "balance" }}
                 >
                   Shahrose Atique is a producer based in Dubai, UAE.
                   <br />
                   <br />
-                  What started out as a curious hobby back in his university
-                  days led up to his obsession with producing music as a
-                  creative outlet, all the while being deployed out in the
-                  oilfields for months at a time.
+                  What initially started out as a curious hobby back in his
+                  university days eventually led up to his obsession with
+                  producing music as a creative outlet, all the while being
+                  deployed out in the oilfields for months at a time.
                   <br />
                   <br />
                   His love for D&amp;B as well as inspiration drew from artists
@@ -626,7 +626,7 @@ export default function Home() {
               </div>
 
               {/* Desktop: Full text */}
-              <p className="hidden md:block text-white/80 text-left text-justify text-base sm:text-base leading-relaxed">
+              <p className="hidden md:block text-white/80 text-left text-base sm:text-base leading-relaxed">
                 Shahrose Atique is a Drum & Bass producer based in Dubai, UAE.
                 <br />
                 <br />
