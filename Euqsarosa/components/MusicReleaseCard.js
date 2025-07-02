@@ -279,9 +279,9 @@ export default function MusicReleaseCard({
               </span>
             </div>
           </div>
-          <div className="flex justify-between items-center mb-2">
+          <div className="flex justify-start items-center mb-2">
             <h3
-              className="text-2xl font-extrabold text-center text-white"
+              className="text-2xl font-extrabold text-left text-white"
               style={{
                 letterSpacing: "0.01em",
                 margin: 0,
@@ -290,13 +290,6 @@ export default function MusicReleaseCard({
             >
               {release.title}
             </h3>
-            <motion.div
-              animate={{ rotate: isOpen ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden"
-            >
-              <ChevronDown className="w-6 h-6 text-white/80" />
-            </motion.div>
           </div>
           {/* Additional info for Never Let Go / Used To */}
           {release.title === "Never Let Go / Used To" && (
@@ -334,7 +327,7 @@ export default function MusicReleaseCard({
                     e.stopPropagation();
                     setShowOverlay(true);
                   }}
-                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  className="buy-stream-btn relative text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
                   style={{
                     textShadow: "0 1px 8px rgba(80,0,120,0.4)",
                     minWidth: "110px",
@@ -426,7 +419,7 @@ export default function MusicReleaseCard({
                     e.stopPropagation();
                     setShowAuroraOverlay(true);
                   }}
-                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  className="buy-stream-btn relative text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
                   style={{
                     textShadow: "0 1px 8px rgba(80,0,120,0.4)",
                     minWidth: "110px",
@@ -518,7 +511,7 @@ export default function MusicReleaseCard({
                     e.stopPropagation();
                     setShowEyesOverlay(true);
                   }}
-                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  className="buy-stream-btn relative text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
                   style={{
                     textShadow: "0 1px 8px rgba(80,0,120,0.4)",
                     minWidth: "110px",
@@ -610,7 +603,7 @@ export default function MusicReleaseCard({
                     e.stopPropagation();
                     setShowGrowOverlay(true);
                   }}
-                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  className="buy-stream-btn relative text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
                   style={{
                     textShadow: "0 1px 8px rgba(80,0,120,0.4)",
                     minWidth: "110px",
@@ -702,7 +695,7 @@ export default function MusicReleaseCard({
                     e.stopPropagation();
                     setShowKeepingOnOverlay(true);
                   }}
-                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  className="buy-stream-btn relative text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
                   style={{
                     textShadow: "0 1px 8px rgba(80,0,120,0.4)",
                     minWidth: "110px",
@@ -794,7 +787,7 @@ export default function MusicReleaseCard({
                     e.stopPropagation();
                     setShowIncongruencyOverlay(true);
                   }}
-                  className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
+                  className="buy-stream-btn relative text-white px-4 sm:px-6 py-2 rounded-full font-extrabold text-base shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-auto overflow-hidden group animated-gradient-box"
                   style={{
                     textShadow: "0 1px 8px rgba(80,0,120,0.4)",
                     minWidth: "110px",

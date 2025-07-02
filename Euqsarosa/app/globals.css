@@ -503,3 +503,42 @@ section[id] {
 .platform-overlay-box .spotify-embed-frame {
   border: 2px solid #fff !important;
 }
+
+/* Light mode styling for buy/stream button to match email button */
+.buy-stream-btn {
+  background: #9333ea !important; /* purple-600 */
+  transition: background-color 0.3s ease !important;
+}
+
+.buy-stream-btn:hover {
+  background: #7c3aed !important; /* purple-700 */
+}
+
+/* Dark mode styling for buy/stream button - keep gradient */
+[data-theme="dark"] .buy-stream-btn {
+  background: linear-gradient(
+    90deg,
+    #2d0a4b 0%,
+    #3a0d5c 50%,
+    #2d0a4b 100%
+  ) !important;
+}
+
+[data-theme="dark"] .buy-stream-btn:hover {
+  background: linear-gradient(90deg, #5f259f 0%, #a084e8 100%) !important;
+}
+
+/* Light mode styling for listen now button to match dark mode */
+.listen-now-btn {
+  background: linear-gradient(
+    90deg,
+    #2d0a4b 0%,
+    #3a0d5c 50%,
+    #2d0a4b 100%
+  ) !important;
+  transition: background 0.3s ease !important;
+}
+
+.listen-now-btn:hover {
+  background: linear-gradient(90deg, #5f259f 0%, #a084e8 100%) !important;
+}

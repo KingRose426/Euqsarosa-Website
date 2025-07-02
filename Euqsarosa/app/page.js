@@ -548,7 +548,7 @@ export default function Home() {
               <a
                 href="#music"
                 ref={listenNowRef}
-                className="listen-now-btn relative bg-gradient-to-r from-[#2d0a4b] via-[#3a0d5c] to-[#2d0a4b] hover:from-[#5f259f] hover:to-[#a084e8] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-extrabold text-base sm:text-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-full sm:w-auto overflow-hidden group animated-gradient-box"
+                className="listen-now-btn relative text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-extrabold text-base sm:text-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 drop-shadow-md w-full sm:w-auto overflow-hidden group animated-gradient-box"
                 style={{ textShadow: "0 1px 8px rgba(80,0,120,0.4)" }}
                 onMouseMove={handleListenNowMouseMove}
               >
@@ -763,6 +763,9 @@ export default function Home() {
           </div>
           <p className="text-white/60 text-sm font-medium tracking-wide">
             ©2025 Euqsarosa
+          </p>
+          <p className="text-white/40 text-xs font-normal tracking-wide mt-2">
+            Website designed, built & maintained by Shahrose Atique
           </p>
         </div>
       </footer>
